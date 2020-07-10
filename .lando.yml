@@ -1,0 +1,13 @@
+name: san
+recipe: drupal8
+config:
+  php:  '7.3'
+  webroot: .
+  xdebug: true
+services:
+  pma:
+    type: phpmyadmin
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
