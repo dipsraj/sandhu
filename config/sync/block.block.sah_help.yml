@@ -1,0 +1,22 @@
+uuid: 8ef86ed9-eeeb-42f4-94b8-a3a2b693c529
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - sah
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: sah_help
+theme: sah
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
