@@ -31,3 +31,6 @@
         display: block !important;
     }
 }
+a {
+  border: 0px;
+}
