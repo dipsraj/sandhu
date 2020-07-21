@@ -69,30 +69,27 @@
   </div>
 {% endif %}
 
-<div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
-  <div id="main" class="layout-main clearfix">
-    {{ page.breadcrumb }}
-    <main id="content" class="column main-content" role="main">
-      <section class="section">
-        <a id="main-content" tabindex="-1"></a>
-        {{ page.content }}
-      </section>
-    </main>
-    {% if page.sidebar_first %}
-      <div id="sidebar-first" class="column sidebar">
-        <aside class="section" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      </div>
-    {% endif %}
-    {% if page.sidebar_second %}
-      <div id="sidebar-second" class="column sidebar">
-        <aside class="section" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      </div>
-    {% endif %}
-  </div>
+<div id="main" class="layout-main clearfix">
+  <main>
+    <div class="container">
+      {{ page.content }}
+    </div>
+  </main>
+
+  {% if page.sidebar_first %}
+    <div id="sidebar-first" class="column sidebar">
+      <aside class="section" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    </div>
+  {% endif %}
+  {% if page.sidebar_second %}
+    <div id="sidebar-second" class="column sidebar">
+      <aside class="section" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    </div>
+  {% endif %}
 </div>
 
 {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
