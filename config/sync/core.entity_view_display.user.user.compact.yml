@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_user_contact_number
   module:
     - user
 _core:
@@ -14,4 +15,5 @@ bundle: user
 mode: compact
 content: {  }
 hidden:
+  field_user_contact_number: true
   member_for: true
