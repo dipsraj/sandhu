@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_user_contact_number
+    - field.field.user.user.field_user_full_name
   module:
     - user
 _core:
@@ -16,4 +17,5 @@ mode: compact
 content: {  }
 hidden:
   field_user_contact_number: true
+  field_user_full_name: true
   member_for: true

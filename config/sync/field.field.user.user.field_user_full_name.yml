@@ -1,16 +1,16 @@
-uuid: fb2ba339-3bcf-420b-8e9c-e59c4d5a7328
+uuid: 970080df-11e6-450b-9082-07f4aa343ea8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_user_contact_number
+    - field.storage.user.field_user_full_name
   module:
     - user
-id: user.user.field_user_contact_number
-field_name: field_user_contact_number
+id: user.user.field_user_full_name
+field_name: field_user_full_name
 entity_type: user
 bundle: user
-label: 'Contact Number'
+label: 'Full Name'
 description: ''
 required: true
 translatable: false

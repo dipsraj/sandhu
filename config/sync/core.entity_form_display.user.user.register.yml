@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.user.register
     - field.field.user.user.field_user_contact_number
+    - field.field.user.user.field_user_full_name
   module:
     - user
 _core:
@@ -15,18 +16,26 @@ bundle: user
 mode: register
 content:
   account:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_user_contact_number:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_user_full_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   contact: true
   language: true

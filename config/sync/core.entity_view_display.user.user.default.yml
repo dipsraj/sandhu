@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_user_contact_number
+    - field.field.user.user.field_user_full_name
   module:
     - user
 _core:
@@ -15,6 +16,14 @@ mode: default
 content:
   field_user_contact_number:
     weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_user_full_name:
+    weight: 7
     label: above
     settings:
       link_to_entity: false
