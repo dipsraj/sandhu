@@ -15,17 +15,12 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  contact:
-    weight: 5
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   field_user_contact_number:
-    weight: 7
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -33,21 +28,14 @@ content:
     type: string_textfield
     region: content
   field_user_full_name:
-    weight: 8
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  language:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  contact: true
+  language: true
+  timezone: true
