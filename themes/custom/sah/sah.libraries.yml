@@ -1,0 +1,11 @@
+global-styling:
+  js:
+    assets/js/global.js: {}
+  css:
+    component:
+      assets/css/global.css: {}
+
+user-login-registration:
+  css:
+    component:
+      assets/css/user-login-registration.css: {}
