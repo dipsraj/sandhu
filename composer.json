@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/devel": "^4.0",
         "drupal/htmlmail": "^3.0@alpha",
         "drupal/mailsystem": "^4.3",
         "drush/drush": "^10.3"
