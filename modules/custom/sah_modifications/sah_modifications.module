@@ -27,14 +27,11 @@ function sah_modifications_help($route_name, RouteMatchInterface $route_match) {
  * implements hook_mail_alter()
  */
 function sah_modifications_mail_alter(&$message) {
-  $a = 1;
-  global $base_url;
   if($message['id'] == 'user_register_no_approval_required' || $message['id'] == 'user_password_reset') {
     $account = $message['params']['account'];
     $data = [];
     $data['username'] = $account->name->value;
     $data['url'] = user_pass_reset_url($account);
-    $data['base_url'] = $base_url;
     $message['data'] = $data;
   }
 }
