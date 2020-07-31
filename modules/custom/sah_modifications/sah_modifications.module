@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains sah_modifications.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sah_modifications_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sah_modifications module.
+    case 'help.page.sah_modifications':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom modifications for SAH') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * implements hook_mail_alter()
+ */
+function sah_modifications_mail_alter(&$message) {
+  $a = 1;
+  global $base_url;
+  if($message['id'] == 'user_register_no_approval_required' || $message['id'] == 'user_password_reset') {
+    $account = $message['params']['account'];
+    $data = [];
+    $data['username'] = $account->name->value;
+    $data['url'] = user_pass_reset_url($account);
+    $data['base_url'] = $base_url;
+    $message['data'] = $data;
+  }
+}
