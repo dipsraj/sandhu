@@ -24,6 +24,7 @@
         "drupal/devel": "^4.0",
         "drupal/htmlmail": "^3.0@alpha",
         "drupal/mailsystem": "^4.3",
+        "drupal/webform": "^5.19",
         "drush/drush": "^10.3"
     },
     "conflict": {

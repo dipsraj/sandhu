@@ -69,69 +69,56 @@
       <div class="row">
         <div class="col-lg-6">
           <h2 class="contact-title">Get a free quote</h2>
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+          <form class="form-contact contact_form" action="/get-quote" method="post" id="contactForm"
                 novalidate="novalidate">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control valid single-input-primary" name="name" id="name"
                          type="text"
-                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-                         placeholder="Enter your name" required>
+                         placeholder="Enter your name" required="required">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control valid single-input-primary" name="email" id="email"
                          type="email"
-                         onfocus="this.placeholder = ''"
-                         onblur="this.placeholder = 'Enter email address'"
-                         placeholder="Email" required>
+                         placeholder="Email" required="required">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control single-input-primary" name="subject" id="subject"
                          type="text"
-                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
-                         placeholder="Enter Subject" required>
+                         placeholder="Enter Subject" required="required">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control single-input-primary" name="pages" id="pages"
                          type="number"
-                         onfocus="this.placeholder = ''"
-                         onblur="this.placeholder = 'Enter Number of pages'"
-                         placeholder="Enter Number of pages" required>
+                         placeholder="Enter Number of pages" required="required">
                 </div>
               </div>
-              <!--                            <div class="col-6">-->
-              <!--                                <div class="form-group" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: center">-->
-              <!--                                    <label for="deadline">Select Deadline</label>-->
-              <!--                                </div>-->
-              <!--                            </div>-->
+              <div class="col-sm-6">
+                <div class="form-group">
+                                <textarea class="form-control w-100 single-input-primary" name="description" id="description"
+                                          cols="30" rows="2"
+                                          placeholder="Enter Assignment Description" required="required"></textarea>
+                </div>
+              </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control single-input-primary" name="deadline" id="deadline"
                          type="text"
                          placeholder="Select Deadline"
                          onfocus="(this.type='date')"
-                         onblur="this.placeholder = 'Select Deadline'" required>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                                <textarea class="form-control w-100 single-input-primary" name="message" id="message"
-                                          cols="30" rows="2"
-                                          onfocus="this.placeholder = ''"
-                                          onblur="this.placeholder = 'Enter Assignment Description'"
-                                          placeholder=" Enter Assignment Description" required></textarea>
+                         onblur="(this.type='text')" required="required">
                 </div>
               </div>
             </div>
             <div class="form-group mt-3">
-              <button type="submit" class="button button-contactForm boxed-btn">Get Free Quote</button>
+              <input type="submit" class="button button-contactForm boxed-btn" value="Get Free Quote" />
             </div>
           </form>
         </div>

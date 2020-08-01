@@ -1,0 +1,15 @@
+sah_modifications.default_controller_hello:
+  path: '/get-quote'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\DefaultController::get_quote'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.quote_price_form:
+  path: '/admin/quote-price'
+  defaults:
+    _form: '\Drupal\sah_modifications\Form\QuotePriceForm'
+    _title: 'Quote Price Form'
+  requirements:
+    _roles: 'admin+manager'
