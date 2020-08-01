@@ -12,4 +12,4 @@ sah_modifications.quote_price_form:
     _form: '\Drupal\sah_modifications\Form\QuotePriceForm'
     _title: 'Quote Price Form'
   requirements:
-    _roles: 'admin+manager'
+    _roles: 'administrator+manager'
