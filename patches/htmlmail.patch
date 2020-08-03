@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Mail/HTMLMailSystem.php b/src/Plugin/Mail/HTMLMailSystem.php
+index ef4d674..c28f3b4 100644
+--- a/src/Plugin/Mail/HTMLMailSystem.php
++++ b/src/Plugin/Mail/HTMLMailSystem.php
+@@ -182,7 +182,7 @@ class HTMLMailSystem implements MailInterface, ContainerFactoryPluginInterface {
+         // Join the body array into one string.
+         $message['body'] = implode("$eol$eol", $message['body']);
+         // Convert any HTML to plain-text.
+-        $message['body'] = MailFormatHelper::htmlToText($message['body']);
++        //$message['body'] = MailFormatHelper::htmlToText($message['body']);
+         // Wrap the mail body for sending.
+         $message['body'] = MailFormatHelper::wrapMail($message['body']);
+       }

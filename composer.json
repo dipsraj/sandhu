@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
         "drupal/admin_toolbar": "^2.3",
         "drupal/console": "^1.9",
         "drupal/core-composer-scaffold": "^8.8",
@@ -87,6 +88,11 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "patches": {
+            "drupal/htmlmail": {
+                "Formatted tags to plain text disabled": "patches/htmlmail.patch"
+            }
         }
     }
 }
