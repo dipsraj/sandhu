@@ -3,7 +3,6 @@
 namespace Drupal\sah_modifications\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Render\Markup;
 use Drupal\webform\Entity\WebformSubmission;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -62,8 +61,7 @@ class DefaultController extends ControllerBase {
         \Drupal::messenger()->addMessage('Email Sent Successfully.');
 
       \Drupal::messenger()->addMessage('Thank You. Check your email for the Quotation.');
-      $redirect = new RedirectResponse('/#get-quote');
-      $redirect->send();
+      return $this->redirect('<front>');
     }
   }
 }
