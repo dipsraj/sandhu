@@ -61,7 +61,6 @@ class DefaultController extends ControllerBase {
       if ($result)
         \Drupal::messenger()->addMessage('Email Sent Successfully.');
 
-
       \Drupal::messenger()->addMessage('Thank You. Check your email for the Quotation.');
       $redirect = new RedirectResponse('/#get-quote');
       $redirect->send();
