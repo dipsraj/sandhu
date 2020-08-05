@@ -1,0 +1,23 @@
+uuid: 3e6b2fdd-1ec8-471f-b90b-e3594b551224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_serial
+    - node.type.ct_assignment
+  module:
+    - serial
+id: node.ct_assignment.field_as_serial
+field_name: field_as_serial
+entity_type: node
+bundle: ct_assignment
+label: Serial
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: serial

@@ -1,0 +1,29 @@
+uuid: ca8c9d67-12b6-4b39-aa4c-01940e4180a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_reference_style
+    - node.type.ct_assignment
+    - taxonomy.vocabulary.taxonomy_assignment_ref_style
+id: node.ct_assignment.field_as_reference_style
+field_name: field_as_reference_style
+entity_type: node
+bundle: ct_assignment
+label: 'Reference Style'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      taxonomy_assignment_ref_style: taxonomy_assignment_ref_style
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

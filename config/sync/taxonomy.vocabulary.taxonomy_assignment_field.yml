@@ -1,0 +1,8 @@
+uuid: d30a7e20-f117-46a8-b02a-7373d9d74857
+langcode: en
+status: true
+dependencies: {  }
+name: 'Assignment Field'
+vid: taxonomy_assignment_field
+description: ''
+weight: 0

@@ -1,0 +1,22 @@
+uuid: 93019183-ec9e-44ec-8a3a-da2f47c58f3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_university_country
+    - node.type.ct_assignment
+  module:
+    - country
+id: node.ct_assignment.field_as_university_country
+field_name: field_as_university_country
+entity_type: node
+bundle: ct_assignment
+label: 'University Country'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selectable_countries: {  }
+field_type: country

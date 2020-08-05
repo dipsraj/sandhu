@@ -1,0 +1,23 @@
+uuid: b3d52aa2-49bb-443e-a25b-0f177f3a8a23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_words
+    - node.type.ct_assignment
+id: node.ct_assignment.field_as_words
+field_name: field_as_words
+entity_type: node
+bundle: ct_assignment
+label: Words
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

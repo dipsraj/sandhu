@@ -1,0 +1,29 @@
+uuid: daa7c55b-95ec-4d0d-a8d2-31dd93021d8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_topic
+    - node.type.ct_assignment
+    - taxonomy.vocabulary.taxonomy_assignment_topic
+id: node.ct_assignment.field_as_topic
+field_name: field_as_topic
+entity_type: node
+bundle: ct_assignment
+label: Topic
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      taxonomy_assignment_topic: taxonomy_assignment_topic
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

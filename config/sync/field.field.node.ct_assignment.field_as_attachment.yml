@@ -1,0 +1,27 @@
+uuid: 12546785-4a31-4a42-b554-e0fd30379668
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_attachment
+    - node.type.ct_assignment
+  module:
+    - file
+id: node.ct_assignment.field_as_attachment
+field_name: field_as_attachment
+entity_type: node
+bundle: ct_assignment
+label: Attachment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'assignment/attachment/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf jpg jpeg png'
+  max_filesize: '10 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
