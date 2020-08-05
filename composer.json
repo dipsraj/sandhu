@@ -91,7 +91,7 @@
         },
         "patches": {
             "drupal/htmlmail": {
-                "Formatted tags to plain text disabled": "patches/htmlmail.patch"
+                "Formatted tags to plain text disabled": "patches/allow-html-formatted-body-3005217-10.patch"
             }
         }
     }
