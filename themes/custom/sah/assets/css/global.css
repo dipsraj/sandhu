@@ -15,3 +15,11 @@
 .alert-wrapper .alert-message {
   text-align: justify;
 }
+
+/* Global form css */
+.sah-form {
+  padding: 50px 20%;
+}
+.sah-form form .js-form-item input {
+  width: 100%;
+}
