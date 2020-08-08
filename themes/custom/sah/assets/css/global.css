@@ -34,3 +34,23 @@
     padding: 50px 5%;
   }
 }
+
+/* Global Tabs/Pills css */
+.nav-pills a {
+  color: #2d3092;
+}
+.nav-pills a:hover {
+  color: #2d3092;
+  background-color: rgba(45, 48, 146, 0.14);
+}
+.nav.nav-pills {
+  border-bottom: 2px solid #2d3092;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #2d3092 !important;
+}
+.nav-pills .nav-link {
+  border-radius: 0 !important;
+  /*border-radius: 0.35em 0.35em 0 0 !important;*/
+}
