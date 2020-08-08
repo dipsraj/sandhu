@@ -201,7 +201,13 @@ a:focus, .button:focus {
     outline: none
 }
 
-#back-top a, .hero__btn a, button {
+.btn {
+    color: #635c5c
+}
+.btn:hover {
+  color: #fff
+}
+#back-top a, .btn, button {
   color: #fff;
 }
 
