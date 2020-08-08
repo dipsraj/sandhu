@@ -24,7 +24,7 @@
   width: 100%;
 }
 .nice-select.open .list{
-  height: 200px;
+  max-height: 200px;
   overflow: auto;
   width: 100%;
   background: rgba(232,244,248,1);
