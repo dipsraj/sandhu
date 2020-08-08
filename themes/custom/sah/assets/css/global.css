@@ -23,3 +23,14 @@
 .sah-form form .js-form-item input {
   width: 100%;
 }
+.nice-select.open .list{
+  height: 200px;
+  overflow: auto;
+  width: 100%;
+  background: rgba(232,244,248,1);
+}
+@media only screen and (max-width: 992px){
+  .sah-form {
+    padding: 50px 5%;
+  }
+}
