@@ -201,12 +201,8 @@ a:focus, .button:focus {
     outline: none
 }
 
-a {
-    color: #635c5c
-}
-
-a:hover {
-    color: #fff
+#back-top a, .hero__btn a, button {
+  color: #fff;
 }
 
 a:focus, a:hover, .portfolio-cat a:hover, .footer -menu li a:hover {
@@ -214,8 +210,7 @@ a:focus, a:hover, .portfolio-cat a:hover, .footer -menu li a:hover {
 }
 
 a, button {
-    color: #fff;
-    outline: medium none
+  outline: medium none;
 }
 
 button:focus, input:focus, input:focus, textarea, textarea:focus {
