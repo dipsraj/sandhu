@@ -20,15 +20,26 @@
 .sah-form {
   padding: 50px 20%;
 }
-.sah-form form .js-form-item input {
-  width: 100%;
+select {
+  color: #3b3b3b;
+  border: 1px solid #ccc;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  margin: 0;
+  font-family: inherit;
+  box-sizing: border-box;
+  max-width: 100%
 }
-.nice-select.open .list{
-  max-height: 200px;
-  overflow: auto;
-  width: 100%;
-  background: rgba(232,244,248,1);
+
+.js-form-file {
+  padding: 3px !important;
 }
+
+.js-filter-wrapper {
+  display: none;
+}
+
 @media only screen and (max-width: 992px){
   .sah-form {
     padding: 50px 5%;

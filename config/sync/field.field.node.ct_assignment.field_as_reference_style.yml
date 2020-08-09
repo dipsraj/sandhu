@@ -12,7 +12,7 @@ entity_type: node
 bundle: ct_assignment
 label: 'Reference Style'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

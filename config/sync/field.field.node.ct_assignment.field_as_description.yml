@@ -1,21 +1,19 @@
-uuid: 1f8bcb94-6547-442c-a9f8-2f0d9c062ec4
+uuid: 1c52efc2-5c8b-491a-a057-e880610ef9fe
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_as_description
     - node.type.ct_assignment
-  module:
-    - text
 id: node.ct_assignment.field_as_description
 field_name: field_as_description
 entity_type: node
 bundle: ct_assignment
-label: Description
+label: 'Assignment Description'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

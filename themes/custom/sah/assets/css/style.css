@@ -2359,7 +2359,7 @@ hr {
     }
 }
 
-.section-tittle span {
+.section-tittle > span {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 22px;

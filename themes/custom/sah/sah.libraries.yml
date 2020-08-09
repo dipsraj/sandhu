@@ -9,3 +9,8 @@ user-login-registration:
   css:
     component:
       assets/css/user-login-registration.css: {}
+
+assignment-form:
+  css:
+    component:
+      assets/css/assignment-form.css: {}

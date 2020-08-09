@@ -10,9 +10,9 @@ id: node.ct_assignment.field_as_field
 field_name: field_as_field
 entity_type: node
 bundle: ct_assignment
-label: Field
+label: 'Assignment Field'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

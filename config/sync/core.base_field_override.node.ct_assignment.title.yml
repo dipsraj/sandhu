@@ -1,0 +1,18 @@
+uuid: 5df45f7c-92c5-4f98-a261-fa5535dc477a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ct_assignment
+id: node.ct_assignment.title
+field_name: title
+entity_type: node
+bundle: ct_assignment
+label: 'Assignment Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

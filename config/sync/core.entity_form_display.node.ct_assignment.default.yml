@@ -22,7 +22,6 @@ dependencies:
     - file
     - path
     - serial
-    - text
 id: node.ct_assignment.default
 targetEntityType: node
 bundle: ct_assignment
@@ -30,88 +29,88 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_as_attachment:
-    weight: 26
+    weight: 9
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_as_comment:
-    weight: 28
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_as_description:
-    weight: 7
+    weight: 1
     settings:
       rows: 5
-      placeholder: ''
+      placeholder: 'Please enter a short description about the assignment'
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_as_expected_delivery:
-    weight: 14
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_as_field:
-    weight: 9
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_as_reference_count:
-    weight: 11
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_as_reference_style:
-    weight: 12
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_as_serial:
-    weight: 27
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: serial_default_widget
     region: content
   field_as_topic:
-    weight: 8
+    weight: 2
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
-      placeholder: ''
+      placeholder: 'Please enter the topic of the assignment'
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
   field_as_university_country:
-    weight: 10
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: country_default
     region: content
   field_as_words:
-    weight: 13
+    weight: 4
     settings:
-      placeholder: ''
+      placeholder: 'Please enter the total words of the assignment'
     third_party_settings: {  }
     type: number
     region: content
   path:
     type: path
-    weight: 5
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -119,21 +118,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 12
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 15
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 13
     region: content
     third_party_settings: {  }
   title:
@@ -142,11 +141,11 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Please enter a title for your assignment'
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60

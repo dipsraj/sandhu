@@ -10,9 +10,9 @@ id: node.ct_assignment.field_as_topic
 field_name: field_as_topic
 entity_type: node
 bundle: ct_assignment
-label: Topic
+label: 'Assignment Topic'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
