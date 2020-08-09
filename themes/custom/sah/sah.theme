@@ -6,12 +6,22 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_form_alter()
  */
 function sah_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if($form_id == "user_login_form" || $form_id == "user_register_form") {
+  if($form_id == "user_login_form" || $form_id == "user_register_form" || $form_id == "user_pass") {
     $form['#attached']['library'][] = 'sah/user-login-registration';
+  }
+  if($form_id == "user_login_form") {
+    $form['#suffix'] = "<div class=\"user-form-links\"> <div> <a href='".Url::fromRoute('user.pass')->toString()."'>Forgot Password?</a> </div> <div> Not Registered?<a href='".Url::fromRoute('user.register')->toString()."'> Create new account</a> </div> </div>";
+  }
+  if($form_id == "user_pass") {
+    $form['#suffix'] = "<div class=\"user-form-links\"> <div> Go to<a href='".Url::fromRoute('user.login')->toString()."'> Login</a> </div> <div> Not Registered?<a href='".Url::fromRoute('user.register')->toString()."'> Create new account</a> </div> </div>";
+  }
+  if($form_id == "user_register_form") {
+    $form['#suffix'] = "<div class=\"user-form-links\"> <div> Already have an account?<a href='".Url::fromRoute('user.login')->toString()."'> Login</a> </div> </div>";
   }
 }
