@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/country": "^1.0@beta",
         "drupal/devel": "^4.0",
+        "drupal/field_group": "^3.1",
         "drupal/htmlmail": "^3.0@alpha",
         "drupal/mailsystem": "^4.3",
         "drupal/pathauto": "^1.8",

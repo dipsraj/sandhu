@@ -19,9 +19,52 @@ dependencies:
     - comment
     - country
     - datetime
+    - field_group
     - file
     - path
     - serial
+third_party_settings:
+  field_group:
+    group_topic_wrapper:
+      children:
+        - field_as_topic
+        - field_as_field
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: topic-wrapper
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Topic Wrapper'
+    group_reference_wrapper:
+      children:
+        - field_as_reference_style
+        - field_as_reference_count
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: reference-wrapper
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Reference Wrapper'
 id: node.ct_assignment.default
 targetEntityType: node
 bundle: ct_assignment
@@ -61,7 +104,7 @@ content:
     type: datetime_default
     region: content
   field_as_field:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -86,7 +129,7 @@ content:
     type: serial_default_widget
     region: content
   field_as_topic:
-    weight: 2
+    weight: 3
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -102,7 +145,7 @@ content:
     type: country_default
     region: content
   field_as_words:
-    weight: 4
+    weight: 3
     settings:
       placeholder: 'Please enter the total words of the assignment'
     third_party_settings: {  }

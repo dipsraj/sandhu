@@ -20,16 +20,20 @@
 .sah-form {
   padding: 50px 20%;
 }
+input, select {
+  height: 40px !important;
+}
 select {
   color: #3b3b3b;
   border: 1px solid #ccc;
   height: calc(2.25rem + 2px);
   padding: .375rem .75rem;
   line-height: 1.5;
-  margin: 0;
   font-family: inherit;
   box-sizing: border-box;
-  max-width: 100%
+  max-width: 100%;
+  border-radius: .25rem;
+  margin: 2px 0 0 !important;
 }
 
 .js-form-file {
