@@ -26,3 +26,11 @@
 .user-form-links div {
   margin-bottom: 10px;
 }
+
+label {
+  font-family: "Sen", sans-serif;
+}
+
+.description {
+  display: none;
+}
