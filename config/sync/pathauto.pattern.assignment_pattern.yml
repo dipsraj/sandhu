@@ -1,0 +1,22 @@
+uuid: 4c5c06a0-93db-494b-a6e9-b52bc42d5668
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: assignment_pattern
+label: 'Assignment Pattern'
+type: 'canonical_entities:node'
+pattern: 'assignment/[node:title]'
+selection_criteria:
+  e3e83a82-5cc0-40d1-9f6e-2878b561e629:
+    id: node_type
+    bundles:
+      ct_assignment: ct_assignment
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e3e83a82-5cc0-40d1-9f6e-2878b561e629
+selection_logic: and
+weight: -5
+relationships: {  }
