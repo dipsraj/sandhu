@@ -13,3 +13,11 @@ sah_modifications.quote_price_form:
     _title: 'Quote Price Form'
   requirements:
     _role: 'administrator+manager'
+
+sah_modifications.page_controller_about_us:
+  path: '/about-us'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'About Us'
+  requirements:
+    _permission: 'access content'
