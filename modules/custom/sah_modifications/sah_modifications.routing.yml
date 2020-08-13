@@ -1,7 +1,15 @@
-sah_modifications.default_controller_hello:
+sah_modifications.default_controller_get_quote:
   path: '/get-quote'
   defaults:
     _controller: '\Drupal\sah_modifications\Controller\DefaultController::get_quote'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.default_controller_get_in_touch:
+  path: '/get-in-touch'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\DefaultController::get_in_touch'
     _title: ''
   requirements:
     _permission: 'access content'
@@ -19,5 +27,13 @@ sah_modifications.page_controller_about_us:
   defaults:
     _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
     _title: 'About Us'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_contact_us:
+  path: '/contact-us'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Contact Us'
   requirements:
     _permission: 'access content'

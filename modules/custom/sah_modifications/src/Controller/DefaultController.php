@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * Class DefaultController.
  */
 class DefaultController extends ControllerBase {
+
   public function get_quote() {
     $name = \Drupal::request()->request->get('name');
     $email = \Drupal::request()->request->get('email');
@@ -20,8 +21,7 @@ class DefaultController extends ControllerBase {
 
     if($name == null || $email == null || $subject == null || $description == null || $deadline == null || $pages == null) {
       \Drupal::messenger()->addError('All Values are required to get a quotation.');
-      $redirect = new RedirectResponse('/#get-quote');;
-      $redirect->send();
+      return $this->redirect('<front>');
     }
     else {
       $price = \Drupal::config('sah_modifications.quote_price')->get('price');
@@ -62,6 +62,32 @@ class DefaultController extends ControllerBase {
 
       \Drupal::messenger()->addMessage('Thank You. Check your email for the Quotation.');
       return $this->redirect('<front>');
+    }
+  }
+
+  public function get_in_touch() {
+    $name = \Drupal::request()->request->get('name');
+    $email = \Drupal::request()->request->get('email');
+    $subject = \Drupal::request()->request->get('subject');
+    $message = \Drupal::request()->request->get('message');
+
+    if($name == null || $email == null || $subject == null || $message == null) {
+      \Drupal::messenger()->addError('All the fields are required!');
+      return $this->redirect('sah_modifications.page_controller_contact_us');
+    }
+    else {
+      $values = [
+        'webform_id' => 'contact',
+        'data' => [
+          'name' => $name,
+          'email' => $email,
+          'subject' => $subject,
+          'message' => $message,
+        ],
+      ];
+      WebformSubmission::create($values)->save();
+      \Drupal::messenger()->addMessage('Thank You for Contacting Us. We will get in touch with you soon!');
+      return $this->redirect('sah_modifications.page_controller_contact_us');
     }
   }
 }

@@ -197,7 +197,7 @@ handlers:
     id: email
     label: 'Email confirmation'
     handler_id: email_confirmation
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
@@ -245,11 +245,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: '[webform_submission:values:email:raw]'
+      from_mail: _default
       from_options: {  }
-      from_name: '[webform_submission:values:name:raw]'
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
+      from_name: _default
+      subject: 'Admin Notification - Contact Us Form Submission'
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
