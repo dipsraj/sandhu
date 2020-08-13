@@ -1,5 +1,13 @@
 {% include "@sah/header.html.twig" %}
 
+{% if page.highlighted %}
+  <div class="highlighted">
+    <aside class="layout-container section clearfix" role="complementary">
+      {{ page.highlighted }}
+    </aside>
+  </div>
+{% endif %}
+
 <main>
   <!--? slider Area Start-->
   <div class="slider-area ">
