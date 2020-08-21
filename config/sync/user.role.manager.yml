@@ -10,6 +10,8 @@ permissions:
   - 'create page content'
   - 'delete any ct_assignment content'
   - 'delete any page content'
+  - 'delete own ct_assignment content'
   - 'edit any ct_assignment content'
   - 'edit any page content'
+  - 'edit own ct_assignment content'
   - 'view own unpublished content'

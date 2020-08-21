@@ -55,7 +55,16 @@
                   </li>
                   <li><a href="/contact-us">Contact</a></li>
                   {% if logged_in %}
-                    <li><a href="/user"><i class="ti-user"></i>&nbsp;&nbsp;My Account</a></li>
+                    <li><a href="javascript:void(0);">Dashboard</a>
+                      <ul class="submenu">
+                        {% set roles = user.getroles(TRUE) %}
+                        {% if 'administrator' in roles or 'manager' in roles %}
+                          <li><a href="/manage/assignments">All Assignments</a></li>
+                        {% else %}
+                          <li><a href="/assignments">My Assignments</a></li>
+                        {% endif %}
+                      </ul>
+                    </li>
                     <li><a href="/user/logout"><i class="ti-user"></i> Logout</a></li>
                   {% else %}
                     <li><a href="/user/register"><i class="ti-lock"></i>&nbsp;&nbsp;Register</a></li>
