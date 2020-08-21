@@ -48,7 +48,6 @@ article.node article.comment .field__item {
 
 /* Admin CSS Ends */
 
-
 .assignment-details{
   width: 60%;
   margin-right: auto ;
@@ -71,6 +70,19 @@ article.node article.comment .field__item {
 }
 .table-bordered td, .table-bordered th {
   border: 1px solid #f5f5f5 !important; ;
+}
+.section-top-border .comment-wrapper {
+  margin-top: 80px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.section-top-border .comment-wrapper .sah-form{
+  padding: 0;
+}
+.section-top-border .comment-wrapper .comment-form {
+   padding-top: 0;
+   margin-top: 0;
 }
 @media only screen and (max-width: 991px) {
   .assignment-details{
