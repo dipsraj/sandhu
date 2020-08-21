@@ -14,3 +14,8 @@ assignment-form:
   css:
     component:
       assets/css/assignment-form.css: {}
+
+assignment-node:
+  css:
+    component:
+      assets/css/assignment-node.css: {}
