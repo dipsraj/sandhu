@@ -84,9 +84,6 @@ article.node article.comment .field__item {
    padding-top: 0;
    margin-top: 0;
 }
-.comment-wrapper textarea {
-  padding: 20px;
-}
 @media only screen and (max-width: 991px) {
   .assignment-details{
     width: 100%;

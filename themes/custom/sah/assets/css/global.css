@@ -76,7 +76,21 @@ select {
 .comment__content {
   min-height: 82px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.comment__content .field--name-field-comment-attachments {
+  margin-top: 20px;
+}
+.comment-wrapper textarea {
+  padding: 20px;
+}
+.comment-wrapper label {
+  width: 100%;
+}
+.comment-form .form-item .description {
+  margin-left: 0;
+  margin-top: 10px;
 }
 .comment {
   display: flex;

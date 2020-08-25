@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - comment.type.comment
+    - field.field.comment.comment.field_comment_attachments
     - field.field.comment.comment.field_comment_body
+  module:
+    - file
 _core:
   default_config_hash: I0Pa0aQvT_jawlPo9oz4FE3h_ickc55dYKTPl6gILes
 id: comment.comment.default
@@ -17,6 +20,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_comment_attachments:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
   field_comment_body:
     weight: 1
     settings:
