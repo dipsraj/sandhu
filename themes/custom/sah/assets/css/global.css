@@ -69,3 +69,27 @@ select {
   border-radius: 0 !important;
   /*border-radius: 0.35em 0.35em 0 0 !important;*/
 }
+/* Comment Css */
+.comment__content h3, .comment__content .links {
+  display: none !important;
+}
+.comment__content {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+}
+.comment {
+  display: flex;
+}
+.comment .comment__meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+.comment .comment__meta .comment__time {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.comment .comment__permalink {
+  display: none;
+}

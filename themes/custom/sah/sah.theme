@@ -5,6 +5,7 @@
  * Functions to support theming in the sah theme.
  */
 
+use Drupal\Core\Datetime\DateFormatter;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
@@ -29,7 +30,6 @@ function sah_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $current_user = \Drupal::currentUser();
     $roles = $current_user->getRoles();
     if (!in_array('administrator',$roles) || !in_array('manager',$roles)) {
-      $a = 1;
       $form['field_as_description']['widget'][0]['value']['#required'] = TRUE;
       $form['field_as_expected_delivery']['widget'][0]['value']['#required'] = TRUE;
       $form['field_as_reference_count']['widget'][0]['value']['#required'] = TRUE;
@@ -42,4 +42,9 @@ function sah_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['revision_information']['#access'] = FALSE;
     }
   }
+}
+
+function sah_preprocess_comment (&$variables) {
+  $created = $variables['comment']->created->value;
+  $variables['created'] = \Drupal::service('date.formatter')->format($created, 'custom', "d-M-Y, H:i" );
 }
