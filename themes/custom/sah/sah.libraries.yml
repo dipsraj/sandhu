@@ -4,6 +4,8 @@ global-styling:
   css:
     component:
       assets/css/global.css: {}
+  dependencies:
+    - core/jquery
 
 user-login-registration:
   css:
