@@ -14,7 +14,6 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'create ct_assignment content'
-  - 'edit own ct_assignment content'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
