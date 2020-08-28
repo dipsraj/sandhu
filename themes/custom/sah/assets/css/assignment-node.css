@@ -46,6 +46,10 @@ article.node article.comment .field__item {
   background-color: #fff;
 }
 
+article.comment > span {
+  display: none;
+}
+
 /* Admin CSS Ends */
 
 .assignment-details{

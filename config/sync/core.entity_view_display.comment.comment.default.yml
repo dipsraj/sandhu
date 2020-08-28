@@ -4,10 +4,7 @@ status: true
 dependencies:
   config:
     - comment.type.comment
-    - field.field.comment.comment.field_comment_attachments
     - field.field.comment.comment.field_comment_body
-  module:
-    - file
 _core:
   default_config_hash: 77Ye1kR-P6AaiGfEO8mnXNSr7nqtnP3PiiVBwJeGGMI
 id: comment.comment.default
@@ -15,14 +12,6 @@ targetEntityType: comment
 bundle: comment
 mode: default
 content:
-  field_comment_attachments:
-    weight: 102
-    label: hidden
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: content
   field_comment_body:
     weight: 101
     label: hidden
