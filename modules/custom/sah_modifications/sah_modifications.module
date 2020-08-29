@@ -5,7 +5,9 @@
  * Contains sah_modifications.module.
  */
 
+use Drupal\comment\Entity\Comment;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_help().
@@ -47,5 +49,35 @@ function sah_modifications_mail_alter(&$message) {
     $data['username'] = $account->name->value;
     $data['url'] = user_pass_reset_url($account);
     $message['data'] = $data;
+  }
+}
+
+function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == "node" && $entity->getType() == "ct_assignment") {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+    if (!in_array('administrator',$roles) || !in_array('manager',$roles)) {
+      $file_names = [];
+      foreach($entity->get('field_as_attachment')->getValue() as $file_id){
+        $file = File::load($file_id['target_id']);
+        $file_names[] = '<li>'.$file->filename->value.'</li>';
+      }
+      $values = [
+        'entity_type' => 'node',
+        'entity_id'   => $entity->id(),
+        'field_name'  => 'field_as_comment',
+        'uid' => $entity->getOwnerId(),
+        'comment_type' => 'comment',
+        'subject' => 'Student Auto Comment',
+        'comment_body' => [
+          'summary' => '',
+          'value' => 'I have added new attachment(s). The files are: <ul>'.implode('', $file_names).'</ul>',
+          'format' => 'basic_html',
+        ],
+        'status' => 1,
+      ];
+      $comment = Comment::create($values);
+      $comment->save();
+    }
   }
 }

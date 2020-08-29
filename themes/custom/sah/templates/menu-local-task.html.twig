@@ -17,7 +17,6 @@
 {%
   set classes = is_active ? 'nav-link active' : 'nav-link'
 %}
-{{ devel_breakpoint(link) }}
 <li class="nav-item">
   <a href="{{ link['#url'] }}" class="{{ classes }}" >{{ link['#title'] }}</a>
 </li>
