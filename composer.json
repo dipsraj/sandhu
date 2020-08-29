@@ -98,9 +98,6 @@
         "patches": {
             "drupal/htmlmail": {
                 "Formatted tags to plain text disabled": "patches/allow-html-formatted-body-3005217-10.patch"
-            },
-            "drupal/core": {
-                "File Upload AJAX Error fix": "patches/2867463-12--AJAX-file-upload-error-handling.patch"
             }
         }
     }
