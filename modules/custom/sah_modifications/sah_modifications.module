@@ -56,7 +56,7 @@ function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $ent
   if ($entity->getEntityTypeId() == "node" && $entity->getType() == "ct_assignment") {
     $current_user = \Drupal::currentUser();
     $roles = $current_user->getRoles();
-    if (!in_array('administrator',$roles) || !in_array('manager',$roles)) {
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
       $file_names = [];
       foreach($entity->get('field_as_attachment')->getValue() as $file_id){
         $file = File::load($file_id['target_id']);
