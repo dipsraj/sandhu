@@ -5,6 +5,10 @@
   margin-bottom: 8px;
   background-color: #dcdcdc;
 }
+.node .field--name-comment-body {
+  flex-direction: column;
+  height: auto;
+}
 .node .field--type-entity-reference {
   margin-bottom: 8px !important;
 }
@@ -19,7 +23,7 @@
   border-left: 3px solid white;
 }
 .node .field__label, .node .field__item {
-  height: 44px;
+  /*height: 44px;*/
   padding: 10px;
   background-color: #dcdcdc;
   font-family: "Sen", sans-serif !important;

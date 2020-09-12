@@ -9,6 +9,7 @@ use Drupal\comment\Entity\Comment;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\file\Entity\File;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -89,18 +90,17 @@ function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $ent
   if ($entity->getEntityTypeId() == "node" && $entity->getType() == "ct_assignment") {
     $current_user = \Drupal::currentUser();
     $roles = $current_user->getRoles();
-    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
 
+    // Adding Automated comment if Student updates file attachments
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
       $original_count=0;
       foreach($entity->original->get('field_as_attachment')->getValue() as $file_id){
         $original_count+=1;
       }
-
       $new_count=0;
       foreach($entity->get('field_as_attachment')->getValue() as $file_id){
         $new_count+=1;
       }
-
       if ($new_count != $original_count) {
         $file_names = [];
         foreach($entity->get('field_as_attachment')->getValue() as $file_id){
@@ -123,6 +123,22 @@ function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $ent
         ];
         $comment = Comment::create($values);
         $comment->save();
+      }
+    }
+
+    // Updating words on assignment edit by admin
+    if (in_array('administrator',$roles) || !in_array('manager',$roles)) {
+      if(($entity->get('field_as_admin_write_up_words')->getValue() != $entity->original->get('field_as_admin_write_up_words')->getValue()) || ($entity->get('field_as_admin_practical_words')->getValue() != $entity->original->get('field_as_admin_practical_words')->getValue())) {
+        $write_up_words = 0;
+        if($entity->get('field_as_admin_write_up_words')->getValue()) {
+          $write_up_words = intval($entity->field_as_admin_write_up_words->value);
+        }
+        $practical_words = 0;
+        if($entity->get('field_as_admin_practical_words')->getValue()) {
+          $practical_words = intval($entity->field_as_admin_practical_words->value);
+        }
+        $id=$entity->id();
+        Node::load($id)->set('field_as_words',$write_up_words+$practical_words)->save();
       }
     }
   }
