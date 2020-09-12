@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.ct_assignment.field_as_admin_assignment_status
     - field.field.node.ct_assignment.field_as_admin_practical_words
     - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
@@ -71,6 +72,7 @@ third_party_settings:
       children:
         - field_as_admin_write_up_words
         - field_as_admin_practical_words
+        - field_as_admin_assignment_status
       parent_name: ''
       weight: 16
       format_type: html_element
@@ -98,6 +100,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_as_admin_assignment_status:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_as_admin_practical_words:
     weight: 18
     settings:

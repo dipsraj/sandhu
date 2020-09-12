@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - field.field.node.ct_assignment.field_as_admin_assignment_status
     - field.field.node.ct_assignment.field_as_admin_practical_words
     - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
@@ -24,6 +25,7 @@ dependencies:
     - datetime
     - field_group
     - file
+    - options
     - serial
     - user
 third_party_settings:
@@ -32,6 +34,7 @@ third_party_settings:
       children:
         - field_as_admin_write_up_words
         - field_as_admin_practical_words
+        - field_as_admin_assignment_status
       parent_name: ''
       weight: 11
       format_type: html_element
@@ -52,6 +55,13 @@ targetEntityType: node
 bundle: ct_assignment
 mode: default
 content:
+  field_as_admin_assignment_status:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_as_admin_practical_words:
     weight: 14
     label: above
