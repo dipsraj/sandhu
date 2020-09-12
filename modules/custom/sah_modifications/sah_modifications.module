@@ -53,6 +53,31 @@ function sah_modifications_mail_alter(&$message) {
   }
 }
 
+/**
+ * implements hook_form_alter()
+ */
+function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if($form_id == "node_ct_assignment_edit_form") {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
+
+      $form['#title'] = "Update Attachments";
+
+      $form['title']['#access'] = FALSE;
+      $form['field_as_description']['#access'] = FALSE;
+      $form['field_as_field']['#access'] = FALSE;
+      $form['field_as_topic']['#access'] = FALSE;
+      $form['field_as_expected_delivery']['#access'] = FALSE;
+      $form['field_as_reference_count']['#access'] = FALSE;
+      $form['field_as_reference_style']['#access'] = FALSE;
+      $form['field_as_serial']['#access'] = FALSE;
+      $form['field_as_university_country']['#access'] = FALSE;
+      $form['field_as_words']['#access'] = FALSE;
+    }
+  }
+}
+
 
 function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->getEntityTypeId() == "node" && $entity->getType() == "ct_assignment") {
