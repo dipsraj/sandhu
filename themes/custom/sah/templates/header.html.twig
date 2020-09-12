@@ -57,6 +57,7 @@
                   {% if logged_in %}
                     <li><a href="javascript:void(0);">Dashboard</a>
                       <ul class="submenu">
+                        <li><a href="/user">My Account</a></li>
                         {% set roles = user.getroles(TRUE) %}
                         {% if 'administrator' in roles or 'manager' in roles %}
                           <li><a href="/manage/assignments">All Assignments</a></li>
