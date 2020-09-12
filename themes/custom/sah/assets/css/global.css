@@ -116,3 +116,8 @@ select {
 .draggable .tabledrag-handle {
   display: none;
 }
+
+/* Empty view Results CSS */
+.view-empty .alert {
+  text-align: center;
+}
