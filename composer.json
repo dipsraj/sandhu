@@ -30,6 +30,7 @@
         "drupal/mailsystem": "^4.3",
         "drupal/pathauto": "^1.8",
         "drupal/r4032login": "^1.1",
+        "drupal/redirect_after_login": "^2.6",
         "drupal/serial": "^1.0@alpha",
         "drupal/webform": "^5.19",
         "drush/drush": "^10.3"

@@ -43,6 +43,7 @@ module:
   quickedit: 0
   r4032login: 0
   rdf: 0
+  redirect_after_login: 0
   sah_modifications: 0
   search: 0
   serial: 0
