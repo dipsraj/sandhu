@@ -1,0 +1,20 @@
+uuid: fa4fe5d1-e2a1-4045-a792-bc23023ca7f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_as_admin_write_up_words
+field_name: field_as_admin_write_up_words
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

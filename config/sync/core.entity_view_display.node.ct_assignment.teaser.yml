@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.ct_assignment.field_as_admin_practical_words
+    - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
     - field.field.node.ct_assignment.field_as_comment
     - field.field.node.ct_assignment.field_as_description
@@ -29,6 +31,8 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_as_admin_practical_words: true
+  field_as_admin_write_up_words: true
   field_as_attachment: true
   field_as_comment: true
   field_as_description: true

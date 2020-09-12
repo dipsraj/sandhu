@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - field.field.node.ct_assignment.field_as_admin_practical_words
+    - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
     - field.field.node.ct_assignment.field_as_comment
     - field.field.node.ct_assignment.field_as_description
@@ -28,6 +30,24 @@ targetEntityType: node
 bundle: ct_assignment
 mode: default
 content:
+  field_as_admin_practical_words:
+    weight: 13
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_as_admin_write_up_words:
+    weight: 12
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_as_attachment:
     weight: 10
     label: above
