@@ -34,7 +34,6 @@ function sah_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['field_as_topic']['widget'][0]['target_id']['#required'] = TRUE;
       $form['field_as_field']['widget']['#required'] = TRUE;
       $form['field_as_reference_style']['widget']['#required'] = TRUE;
-
       $form['meta']['#access'] = FALSE;
       $form['revision_information']['#access'] = FALSE;
     }

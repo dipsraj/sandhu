@@ -12,22 +12,22 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: pending
+      value: Pending
       label: Pending
     -
-      value: in_conversation
+      value: 'In Conversation'
       label: 'In Conversation'
     -
-      value: approved
+      value: Approved
       label: Approved
     -
-      value: partially_completed
+      value: 'Partially Completed'
       label: 'Partially Completed'
     -
-      value: completed
+      value: Completed
       label: Completed
     -
-      value: rework
+      value: Rework
       label: Rework
   allowed_values_function: ''
 module: options

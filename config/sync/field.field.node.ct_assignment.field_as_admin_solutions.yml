@@ -1,0 +1,27 @@
+uuid: 906b240f-376d-4a68-91db-ae6d3fdff0f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_admin_solutions
+    - node.type.ct_assignment
+  module:
+    - file
+id: node.ct_assignment.field_as_admin_solutions
+field_name: field_as_admin_solutions
+entity_type: node
+bundle: ct_assignment
+label: Solutions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'assignment/solutions/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf jpg jpeg png zip rar tar.gz'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -175,6 +175,44 @@
       </tr>
       </tbody>
     </table>
+
+    <div class="container-fluid bottom-section">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="orange-heads">Final Status:</h2>
+          <h1 class="blue-heads">{{ node.field_as_admin_assignment_status.value }}</h1>
+        </div>
+        <div class="col-sm-6">
+          <h1 class="orange-heads">{{ node.field_as_expected_delivery.0.value|date("d-M-Y") }}</h1>
+          <h2 class="blue-heads">{{ node.field_as_expected_delivery.0.value|date("H:i") }}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          {% set total_words = node.field_as_admin_write_up_words.value + node.field_as_admin_practical_words.value %}
+          <h1 class="orange-heads">{{ total_words }} words</h1>
+          <h4 class="blue-heads">Write-up: {{ node.field_as_admin_write_up_words.value }} words</h4>
+          <h4 class="blue-heads">Practical: {{ node.field_as_admin_practical_words.value }} words</h4>
+        </div>
+        <div class="col-sm-6">
+          <h1 class="orange-heads">Solutions :</h1>
+          {% if node.field_as_admin_solutions|length > 0 %}
+            <ul class="blue-heads">
+              {% for key, item in node.field_as_admin_solutions if key|first != '#' %}
+                <li><a href="{{ file_url(item.entity.uri.value) }}" download><i class="fa fa-paperclip" aria-hidden="true"></i> {{ item.entity.filename.value }}</a></li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No solutions uploaded till now.</p>
+          {% endif %}
+          {% set roles = user.getroles(TRUE) %}
+          {% if 'administrator' in roles or 'manager' in roles %}
+            <a class="genric-btn primary" href="/node/{{ node.id() }}/edit/">Upload Solutions</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
     {{ content.field_as_comment }}
   </div>
 {% endif %}

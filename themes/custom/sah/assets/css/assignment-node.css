@@ -100,3 +100,54 @@ article.comment > span {
     width: 95%
   }
 }
+
+/* Bottom Section Details CSS */
+.bottom-section {
+  padding-bottom: 40px;
+}
+.bottom-section h1,
+.bottom-section h2,
+.bottom-section h3,
+.bottom-section h4 {
+  font-weight: bold
+}
+.bottom-section h1 {
+  font-size: 45px
+}
+@media only screen and (max-width: 991px) {
+
+  .bottom-section h4 {
+    font-size: 15px
+  }
+
+  .bottom-section h2 {
+    font-size: 20px
+  }
+
+  .bottom-section h1 {
+    font-size: 30px
+  }
+}
+.container-fluid.bottom-section {
+  max-width: 60%;
+  margin-top: 60px;
+  background-color: #f5f5f5;
+}
+.container-fluid.bottom-section .row {
+  margin-top: 24px;
+}
+.bottom-section .blue-heads {
+  color: #2d2f93;
+}
+.bottom-section .orange-heads {
+  color: #d14432;
+}
+.container-fluid.bottom-section .col-sm-6 {
+  padding: 12px;
+}
+.bottom-section ul {
+  font-weight: bold;
+}
+.bottom-section .genric-btn {
+  margin-top: 12px;
+}

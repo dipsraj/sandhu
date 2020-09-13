@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.ct_assignment.field_as_admin_assignment_status
     - field.field.node.ct_assignment.field_as_admin_practical_words
+    - field.field.node.ct_assignment.field_as_admin_solutions
     - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
     - field.field.node.ct_assignment.field_as_comment
@@ -73,6 +74,7 @@ third_party_settings:
         - field_as_admin_write_up_words
         - field_as_admin_practical_words
         - field_as_admin_assignment_status
+        - field_as_admin_solutions
       parent_name: ''
       weight: 16
       format_type: html_element
@@ -112,6 +114,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_as_admin_solutions:
+    weight: 20
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
     region: content
   field_as_admin_write_up_words:
     weight: 17

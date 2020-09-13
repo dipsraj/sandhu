@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.ct_assignment.field_as_admin_assignment_status
     - field.field.node.ct_assignment.field_as_admin_practical_words
+    - field.field.node.ct_assignment.field_as_admin_solutions
     - field.field.node.ct_assignment.field_as_admin_write_up_words
     - field.field.node.ct_assignment.field_as_attachment
     - field.field.node.ct_assignment.field_as_comment
@@ -34,6 +35,7 @@ content:
 hidden:
   field_as_admin_assignment_status: true
   field_as_admin_practical_words: true
+  field_as_admin_solutions: true
   field_as_admin_write_up_words: true
   field_as_attachment: true
   field_as_comment: true

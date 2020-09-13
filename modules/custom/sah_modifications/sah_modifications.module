@@ -65,6 +65,7 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
       $form['field_as_admin_write_up_words']['#access'] = FALSE;
       $form['field_as_admin_practical_words']['#access'] = FALSE;
       $form['field_as_admin_assignment_status']['#access'] = FALSE;
+      $form['field_as_admin_solutions']['#access'] = FALSE;
     }
     else {
       $form['actions']['submit']['#submit'][] = 'assignment_post_submit';
@@ -86,6 +87,7 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
       $form['field_as_admin_write_up_words']['#access'] = FALSE;
       $form['field_as_admin_practical_words']['#access'] = FALSE;
       $form['field_as_admin_assignment_status']['#access'] = FALSE;
+      $form['field_as_admin_solutions']['#access'] = FALSE;
     }
     else {
       $form['actions']['submit']['#submit'][] = 'assignment_post_submit';
