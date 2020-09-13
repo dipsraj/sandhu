@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_help().
@@ -32,6 +33,7 @@ function sah_modifications_help($route_name, RouteMatchInterface $route_match) {
  */
 function sah_modifications_mail($key, &$message, $params) {
   switch ($key) {
+    case 'comment_notification':
     case 'quote_notification_user':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
@@ -151,4 +153,45 @@ function assignment_post_submit(&$form, FormStateInterface $form_state) {
     $practical_words = intval($entity->field_as_admin_practical_words->value);
   }
   $entity->set('field_as_words',$write_up_words+$practical_words)->save();
+}
+
+/**
+ * implements hook_comment_insert()
+ */
+function sah_modifications_comment_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+  // Sending Mail for New Comments
+  $uid = $entity->getOwnerId();
+  $user = User::load($uid);
+  $roles = $user->getRoles();
+
+  $nid = $entity->entity_id->target_id;
+  $node = Node::load($nid);
+  $order_id = $node->field_as_serial->value;
+  $order_id = sprintf('%06d', $order_id);
+  $title = $node->getTitle();
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'sah_modifications';
+  $key = 'comment_notification';
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = true;
+  $params['subject'] = 'Comment Notification for order ID - ' . $order_id;
+  $params['salutation'] = "Hello,";
+
+  if (in_array('administrator',$roles) || in_array('manager',$roles)) {
+    $to = User::load($node->getOwnerID())->getEmail();
+    $user_type = "Admin";
+  }
+  else {
+    $to = \Drupal::config('system.site')->get('mail');
+    $user_type = "Student";
+  }
+
+  $params['data']['user_type'] = $user_type;
+  $params['data']['order_id'] = $order_id;
+  $params['data']['order_title'] = $title;
+  $params['data']['order_link'] = $host = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+  $params['data']['comment_body'] = $entity->comment_body->value;
+  $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 }
