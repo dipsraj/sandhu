@@ -107,38 +107,46 @@ function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $ent
 
     // Adding Automated comment if Student updates file attachments
     if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
-      $original_count=0;
-      foreach($entity->original->get('field_as_attachment')->getValue() as $file_id){
-        $original_count+=1;
-      }
-      $new_count=0;
-      foreach($entity->get('field_as_attachment')->getValue() as $file_id){
-        $new_count+=1;
-      }
-      if ($new_count != $original_count) {
-        $file_names = [];
-        foreach($entity->get('field_as_attachment')->getValue() as $file_id){
-          $file = File::load($file_id['target_id']);
-          $file_names[] = '<li>'.$file->filename->value.'</li>';
-        }
-        $values = [
-          'entity_type' => 'node',
-          'entity_id'   => $entity->id(),
-          'field_name'  => 'field_as_comment',
-          'uid' => $entity->getOwnerId(),
-          'comment_type' => 'comment',
-          'subject' => 'Student Auto Comment',
-          'comment_body' => [
-            'summary' => '',
-            'value' => 'I have added new attachment(s). The files are: <ul>'.implode('', $file_names).'</ul>',
-            'format' => 'basic_html',
-          ],
-          'status' => 1,
-        ];
-        $comment = Comment::create($values);
-        $comment->save();
-      }
+      auto_comment_post($entity, 'field_as_attachment', 'Student Auto Comment for Attachment Upload', 'I have added new attachment(s).');
     }
+    // Adding Automated comment if Admin uploads solution files
+    else {
+      auto_comment_post($entity, 'field_as_admin_solutions', 'Admin Auto Comment for Solution Upload', 'Solution Uploaded.');
+    }
+  }
+}
+
+function auto_comment_post ($entity, $field_name, $subject, $msg) {
+  $original_count=0;
+  foreach($entity->original->get($field_name)->getValue() as $file_id){
+    $original_count+=1;
+  }
+  $new_count=0;
+  foreach($entity->get($field_name)->getValue() as $file_id){
+    $new_count+=1;
+  }
+  if ($new_count != $original_count) {
+    $file_names = [];
+    foreach($entity->get($field_name)->getValue() as $file_id){
+      $file = File::load($file_id['target_id']);
+      $file_names[] = '<li>'.$file->filename->value.'</li>';
+    }
+    $values = [
+      'entity_type' => 'node',
+      'entity_id'   => $entity->id(),
+      'field_name'  => 'field_as_comment',
+      'uid' => \Drupal::currentUser()->id(),
+      'comment_type' => 'comment',
+      'subject' => $subject,
+      'comment_body' => [
+        'summary' => '',
+        'value' => $msg . ' The file(s) are: <ul>'.implode('', $file_names).'</ul>',
+        'format' => 'basic_html',
+      ],
+      'status' => 1,
+    ];
+    $comment = Comment::create($values);
+    $comment->save();
   }
 }
 
