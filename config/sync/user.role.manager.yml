@@ -7,6 +7,8 @@ label: Manager
 weight: 3
 is_admin: null
 permissions:
+  - 'access user profiles'
+  - 'administer users'
   - 'create page content'
   - 'edit any ct_assignment content'
   - 'edit any page content'

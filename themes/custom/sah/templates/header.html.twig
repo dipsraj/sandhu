@@ -61,6 +61,7 @@
                         {% set roles = user.getroles(TRUE) %}
                         {% if 'administrator' in roles or 'manager' in roles %}
                           <li><a href="/manage/assignments">All Assignments</a></li>
+                          <li><a href="/manage/students">All Students</a></li>
                           <li><a href="/admin/quote-price">Set Quotation Price</a></li>
                         {% else %}
                           <li><a href="/assignments">My Assignments</a></li>
