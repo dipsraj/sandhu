@@ -9,6 +9,8 @@ dependencies:
     - field.storage.node.field_as_topic
     - field.storage.user.field_user_full_name
     - node.type.ct_assignment
+    - taxonomy.vocabulary.taxonomy_assignment_field
+    - taxonomy.vocabulary.taxonomy_assignment_topic
     - user.role.administrator
     - user.role.authenticated
     - user.role.manager
@@ -16,6 +18,7 @@ dependencies:
     - datetime
     - node
     - serial
+    - taxonomy
     - user
 id: view_assignments
 label: Assignments
@@ -52,7 +55,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -484,6 +487,194 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+          group: 1
+        field_as_serial_value:
+          id: field_as_serial_value
+          table: node__field_as_serial
+          field: field_as_serial_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_as_serial_value_op
+            label: 'Order ID'
+            description: ''
+            use_operator: false
+            operator: field_as_serial_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: order_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: 'Assignment Title'
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_as_field_target_id:
+          id: field_as_field_target_id
+          table: node__field_as_field
+          field: field_as_field_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_as_field_target_id_op
+            label: 'Assignment Field'
+            description: ''
+            use_operator: false
+            operator: field_as_field_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: taxonomy_assignment_field
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_as_topic_target_id:
+          id: field_as_topic_target_id
+          table: node__field_as_topic
+          field: field_as_topic_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_as_topic_target_id_op
+            label: 'Assignment Topic'
+            description: ''
+            use_operator: false
+            operator: field_as_topic_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: topic_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: taxonomy_assignment_topic
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -518,12 +709,18 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -988,7 +1185,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -1582,6 +1781,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
