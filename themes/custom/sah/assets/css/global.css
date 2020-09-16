@@ -121,3 +121,8 @@ select {
 .view-empty .alert {
   text-align: center;
 }
+
+/* Student View Header Css */
+.view-header .student-details {
+  text-align: center;
+}

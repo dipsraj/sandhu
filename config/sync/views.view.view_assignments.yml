@@ -1195,16 +1195,16 @@ display:
         - 'config:field.storage.node.field_as_field'
         - 'config:field.storage.node.field_as_serial'
         - 'config:field.storage.node.field_as_topic'
-  admin_user_assignments:
+  admin_student_assignments:
     display_plugin: page
-    id: admin_user_assignments
-    display_title: 'Admin User Assignments'
+    id: admin_student_assignments
+    display_title: 'Admin Student Assignments'
     position: 1
     display_options:
       display_extenders: {  }
-      path: user-assignments/%
+      path: student-assignments/%
       display_description: ''
-      title: 'User Assignments'
+      title: 'Student Assignments'
       defaults:
         title: false
         access: false
@@ -1265,7 +1265,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          content: '<h3>Student: <a href="/user/{{ arguments.uid }}">{{ field_user_full_name }}</a></h3>'
+          content: '<div class="student-details"><h3>Student: <a href="/user/{{ arguments.uid }}"><u>{{ field_user_full_name }}</u></a></h3></div>'
           plugin_id: text_custom
       relationships:
         uid:
