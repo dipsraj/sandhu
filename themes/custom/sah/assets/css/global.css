@@ -126,3 +126,8 @@ select {
 .view-header .student-details {
   text-align: center;
 }
+
+/* Global View Exposed Form CSS */
+.view-filters .sah-form {
+  padding: 0;
+}
