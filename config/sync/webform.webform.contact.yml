@@ -1,12 +1,9 @@
-uuid: 8124b5d1-81bb-4883-b28a-7980393466fa
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: OPbEEQAzvu7mP33Ykbxa3jKQIHhzedZf1pY27da5baU
 open: null
 close: null
 weight: 0
@@ -90,6 +87,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -145,6 +144,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  serial_disabled: false
 access:
   create:
     roles:
@@ -222,13 +222,13 @@ handlers:
       html: true
       attachments: false
       twig: false
-      theme_name: ''
-      parameters: {  }
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''
+      parameters: {  }
   email_notification:
     id: email
     label: 'Email notification'
@@ -258,11 +258,14 @@ handlers:
       html: true
       attachments: false
       twig: false
-      theme_name: ''
-      parameters: {  }
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''
+      parameters: {  }
 variants: {  }
+uuid: 8124b5d1-81bb-4883-b28a-7980393466fa
+_core:
+  default_config_hash: OPbEEQAzvu7mP33Ykbxa3jKQIHhzedZf1pY27da5baU
