@@ -131,3 +131,19 @@ select {
 .view-filters .sah-form {
   padding: 0;
 }
+.view-filters .form--inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-filters #edit-actions {
+  flex-basis: 100%;
+}
+.view-filters .form-item {
+  width: 32%;
+  min-width: 32%;
+  max-width: 32%;
+}
+.view-filters .form-item .description {
+  display: none;
+}
