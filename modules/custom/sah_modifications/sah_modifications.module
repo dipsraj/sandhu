@@ -140,7 +140,7 @@ function auto_comment_post ($entity, $field_name, $subject, $msg) {
       'subject' => $subject,
       'comment_body' => [
         'summary' => '',
-        'value' => $msg . ' The file(s) are: <ul>'.implode('', $file_names).'</ul>',
+        'value' => $msg . ' The updated set of file(s) are: <ul>'.implode('', $file_names).'</ul>',
         'format' => 'basic_html',
       ],
       'status' => 1,
