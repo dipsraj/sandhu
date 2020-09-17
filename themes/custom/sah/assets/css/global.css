@@ -147,3 +147,11 @@ select {
 .view-filters .form-item .description {
   display: none;
 }
+
+@media (max-width: 767px) {
+  .view-filters .form-item {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
