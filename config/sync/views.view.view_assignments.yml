@@ -17,6 +17,7 @@ dependencies:
     - user.role.manager
   module:
     - better_exposed_filters
+    - csv_serialization
     - datetime
     - node
     - options
@@ -26,7 +27,6 @@ dependencies:
     - taxonomy
     - user
     - views_data_export
-    - xls_serialization
 id: view_assignments
 label: Assignments
 module: views
@@ -2950,7 +2950,7 @@ display:
         type: data_export
         options:
           formats:
-            xlsx: xlsx
+            csv: csv
           csv_settings:
             delimiter: ','
             enclosure: '"'
