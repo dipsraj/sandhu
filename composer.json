@@ -35,6 +35,7 @@
         "drupal/serial": "^1.0@alpha",
         "drupal/views_data_export": "^1.0",
         "drupal/webform": "^5.19",
+        "drupal/webform_views": "^5.0@alpha",
         "drush/drush": "^10.3"
     },
     "conflict": {
