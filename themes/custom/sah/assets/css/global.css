@@ -155,3 +155,24 @@ select {
     max-width: 100%;
   }
 }
+/* Batch Process CSS */
+.progress {
+  height: auto !important;
+  background-color: #fff !important;
+}
+.progress #updateprogress{
+  width: 100%;
+  display: flex;
+  font-size: 24px;
+  flex-wrap: wrap;
+}
+.progress #updateprogress .progress__track{
+  width: 90%;
+}
+.progress #updateprogress .progress__percentage{
+  padding-left: 15px;
+  margin-top: -2px;
+}
+.progress #updateprogress .progress__description{
+  flex-basis: 100%;
+}

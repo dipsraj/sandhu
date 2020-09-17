@@ -33,6 +33,7 @@
         "drupal/r4032login": "^1.1",
         "drupal/redirect_after_login": "^2.6",
         "drupal/serial": "^1.0@alpha",
+        "drupal/views_data_export": "^1.0",
         "drupal/webform": "^5.19",
         "drush/drush": "^10.3"
     },

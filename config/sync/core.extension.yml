@@ -17,6 +17,7 @@ module:
   content_access: 0
   contextual: 0
   country: 0
+  csv_serialization: 0
   ctools: 0
   datetime: 0
   dblog: 0
@@ -49,9 +50,11 @@ module:
   r4032login: 0
   rdf: 0
   redirect_after_login: 0
+  rest: 0
   sah_modifications: 0
   search: 0
   serial: 0
+  serialization: 0
   shortcut: 0
   system: 0
   taxonomy: 0
@@ -61,6 +64,7 @@ module:
   tour: 0
   update: 0
   user: 0
+  views_data_export: 0
   views_ui: 0
   webform: 0
   webform_ui: 0
