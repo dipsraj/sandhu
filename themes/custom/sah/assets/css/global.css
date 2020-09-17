@@ -178,7 +178,7 @@ select {
 }
 
 /* Views Data Export CSV Button CSS */
-.feed-icons .csv-feed a {
+.feed-icons .xlsx-feed a {
   text-transform: uppercase;
   font-weight: bold;
   display: -webkit-box;
@@ -200,8 +200,8 @@ select {
   position: relative;
   text-indent: 0;
 }
-.feed-icons .csv-feed a:after {
-  content: "download csv";
+.feed-icons .xlsx-feed a:after {
+  content: "export data";
   text-transform: uppercase;
   font-size: 14px;
   color: #2d3092;
@@ -213,9 +213,9 @@ select {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.feed-icons .csv-feed a:hover {
+.feed-icons .xlsx-feed a:hover {
   background-color: #2d3092;
 }
-.feed-icons .csv-feed a:hover::after {
+.feed-icons .xlsx-feed a:hover::after {
   color: #fff;
 }

@@ -17,7 +17,6 @@ dependencies:
     - user.role.manager
   module:
     - better_exposed_filters
-    - csv_serialization
     - datetime
     - node
     - options
@@ -27,6 +26,7 @@ dependencies:
     - taxonomy
     - user
     - views_data_export
+    - xls_serialization
 id: view_assignments
 label: Assignments
 module: views
@@ -2950,7 +2950,7 @@ display:
         type: data_export
         options:
           formats:
-            csv: csv
+            xlsx: xlsx
           csv_settings:
             delimiter: ','
             enclosure: '"'
@@ -2960,7 +2960,19 @@ display:
             encoding: utf8
             utf8_bom: '0'
             use_serializer_encode_only: false
-      filename: all_assignments.csv
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      filename: all_assignments_list
       automatic_download: false
       store_in_public_file_directory: false
       redirect_to_display: admin_all_assignments
