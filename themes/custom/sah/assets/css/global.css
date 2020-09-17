@@ -176,3 +176,46 @@ select {
 .progress #updateprogress .progress__description{
   flex-basis: 100%;
 }
+
+/* Views Data Export CSV Button CSS */
+.feed-icons .csv-feed a {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 16px;
+  border: 1px solid #2d3092;
+  padding: 8px 12px;
+  color: transparent;
+  border-radius: 2px;
+  background-image: none;
+  height: 48px;
+  width: 320px;
+  max-width: 100%;
+  margin-top: 8px;
+  position: relative;
+  text-indent: 0;
+}
+.feed-icons .csv-feed a:after {
+  content: "download csv";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #2d3092;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.feed-icons .csv-feed a:hover {
+  background-color: #2d3092;
+}
+.feed-icons .csv-feed a:hover::after {
+  color: #fff;
+}
