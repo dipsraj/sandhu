@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
 /**
@@ -35,6 +36,7 @@ function sah_modifications_mail($key, &$message, $params) {
   switch ($key) {
     case 'comment_notification':
     case 'quote_notification_user':
+    case 'new_assignment_notification':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
       $message['salutation'] = $params['salutation'];
@@ -100,6 +102,47 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
   }
   if($form_id == "comment_comment_form") {
     $form['actions']['submit']['#value'] = t("Send");
+  }
+}
+
+/**
+ * implements hook_entity_insert()
+ */
+function sah_modifications_entity_insert(Drupal\Core\Entity\EntityInterface $node) {
+  if ($node->getEntityTypeId() == "node" && $node->getType() == "ct_assignment") {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'sah_modifications';
+    $key = 'new_assignment_notification';
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+
+    $nid = $node->id();
+    $order_id = $node->field_as_serial->value;
+    $order_id = sprintf('%06d', $order_id);
+    $title = $node->getTitle();
+    $student_id = $node->getOwnerID();
+    $student = User::load($student_id);
+    $student_email = $student->getEmail();
+    $student_username = $student->getUsername();
+
+    $host = \Drupal::request()->getSchemeAndHttpHost();
+    $params['data']['student_email'] = $student_email;
+    $params['data']['student_username'] = $student_username;
+    $params['data']['student_link'] = $host . \Drupal::service('path.alias_manager')->getAliasByPath('/user/'.$student_id);
+    $params['data']['order_id'] = $order_id;
+    $params['data']['order_link'] = $host . '/node/' . $nid;
+    $params['data']['title'] = $title;
+
+    $params['data']['field'] = Term::load($node->field_as_field->target_id)->getName();
+    $params['data']['topic'] = Term::load($node->field_as_topic->target_id)->getName();
+    $params['data']['desc'] = $node->field_as_description->value;
+    $params['data']['delivery'] = \Drupal::service('date.formatter')->format($node->field_as_expected_delivery->date->getTimestamp(), 'custom', "d-M-Y, H:i" );
+    $params['data']['words'] = $node->field_as_words->value;
+
+    $to = \Drupal::config('system.site')->get('mail');
+    $params['subject'] = 'New Assignment Booked - ' . $title;
+    $params['salutation'] = "Hello Admin,";
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
   }
 }
 
@@ -190,7 +233,7 @@ function sah_modifications_comment_insert(Drupal\Core\Entity\EntityInterface $en
   $key = 'comment_notification';
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
   $send = true;
-  $params['subject'] = 'Comment Notification for order ID - ' . $order_id;
+  $params['subject'] = 'New Message for Order ID - ' . $order_id;
   $params['salutation'] = "Hello,";
 
   if (in_array('administrator',$roles) || in_array('manager',$roles)) {
@@ -205,7 +248,7 @@ function sah_modifications_comment_insert(Drupal\Core\Entity\EntityInterface $en
   $params['data']['user_type'] = $user_type;
   $params['data']['order_id'] = $order_id;
   $params['data']['order_title'] = $title;
-  $params['data']['order_link'] = $host = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+  $params['data']['order_link'] = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
   $params['data']['comment_body'] = $entity->comment_body->value;
   $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 }
