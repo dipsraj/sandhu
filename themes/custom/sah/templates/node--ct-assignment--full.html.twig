@@ -160,13 +160,13 @@
         <td>{{ node.field_as_expected_delivery.0.value|date("H:i") }}</td>
       </tr>
       <tr>
-        <th colspan="2">Attached Files</th>
+        <th colspan="2">Attached Files (New files first)</th>
       </tr>
       <tr>
         <td colspan="2">
           {% if content.field_as_attachment[0] %}
             <ul>
-              {% for key, item in node.field_as_attachment if key|first != '#' %}
+              {% for key, item in node.field_as_attachment|reverse if key|first != '#' %}
                 <li><a href="{{ file_url(item.entity.uri.value) }}" download><i class="fa fa-paperclip" aria-hidden="true"></i> {{ item.entity.filename.value }}</a></li>
               {% endfor %}
             </ul>

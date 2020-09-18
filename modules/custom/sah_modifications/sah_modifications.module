@@ -180,6 +180,7 @@ function auto_comment_post ($entity, $field_name, $subject, $msg) {
       $file = File::load($file_id['target_id']);
       $file_names[] = '<li>'.$file->filename->value.'</li>';
     }
+    $file_names = array_reverse($file_names, TRUE);
     $values = [
       'entity_type' => 'node',
       'entity_id'   => $entity->id(),
