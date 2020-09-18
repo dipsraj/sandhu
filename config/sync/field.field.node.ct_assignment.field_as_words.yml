@@ -9,7 +9,7 @@ id: node.ct_assignment.field_as_words
 field_name: field_as_words
 entity_type: node
 bundle: ct_assignment
-label: Words
+label: 'Words (Optional)'
 description: ''
 required: false
 translatable: false
