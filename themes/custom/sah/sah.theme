@@ -30,7 +30,6 @@ function sah_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       $form['field_as_description']['widget'][0]['value']['#required'] = TRUE;
       $form['field_as_expected_delivery']['widget'][0]['value']['#required'] = TRUE;
       $form['field_as_reference_count']['widget'][0]['value']['#required'] = TRUE;
-      $form['field_as_words']['widget'][0]['value']['#required'] = TRUE;
       $form['field_as_topic']['widget'][0]['target_id']['#required'] = TRUE;
       $form['field_as_field']['widget']['#required'] = TRUE;
       $form['field_as_reference_style']['widget']['#required'] = TRUE;

@@ -139,7 +139,7 @@
       </tr>
       <tr>
         <td>{{ content.field_as_university_country[0]|escape }}</td>
-        <td>{{ node.field_as_words.value }}</td>
+        <td>{% if node.field_as_words.value %} Words : {{ node.field_as_words.value }} {% else %} NA {% endif %}</td>
       </tr>
       <tr>
         <th colspan="2">Assignment Description</th>
@@ -190,9 +190,9 @@
       <div class="row">
         <div class="col-sm-6">
           {% set total_words = node.field_as_admin_write_up_words.value + node.field_as_admin_practical_words.value %}
-          <h1 class="orange-heads">{{ total_words }} words</h1>
-          <h4 class="blue-heads">Write-up: {{ node.field_as_admin_write_up_words.value }} words</h4>
-          <h4 class="blue-heads">Practical: {{ node.field_as_admin_practical_words.value }} words</h4>
+          <h1 class="orange-heads">{% if total_words %}{{ total_words }} words {% else %} {% if node.field_as_words.value %} Words : {{ node.field_as_words.value }} {% else %} Words : NA {% endif %} {% endif %}</h1>
+          <h4 class="blue-heads">Write-up: {% if total_words %}{{ node.field_as_admin_write_up_words.value }} words {% else %} NA {% endif %}</h4>
+          <h4 class="blue-heads">Practical: {% if total_words %}{{ node.field_as_admin_practical_words.value }} words {% else %} NA {% endif %}</h4>
         </div>
         <div class="col-sm-6">
           <h1 class="orange-heads">Solutions :</h1>
