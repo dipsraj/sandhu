@@ -63,6 +63,8 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
   $current_user = \Drupal::currentUser();
   $roles = $current_user->getRoles();
   if($form_id == "node_ct_assignment_form") {
+    $form['#title'] = "Book Assignment";
+    $form['actions']['submit']['#value'] = t("Book");
     if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
       $form['field_as_admin_write_up_words']['#access'] = FALSE;
       $form['field_as_admin_practical_words']['#access'] = FALSE;
@@ -74,6 +76,7 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
     }
   }
   if($form_id == "node_ct_assignment_edit_form") {
+    $form['actions']['submit']['#value'] = t("Update");
     if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
       $form['#title'] = "Update Attachments";
       $form['title']['#access'] = FALSE;
@@ -94,6 +97,9 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
     else {
       $form['actions']['submit']['#submit'][] = 'assignment_post_submit';
     }
+  }
+  if($form_id == "comment_comment_form") {
+    $form['actions']['submit']['#value'] = t("Send");
   }
 }
 
