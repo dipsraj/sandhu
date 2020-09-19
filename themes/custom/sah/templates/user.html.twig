@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set roles = user.getroles(TRUE) %}
+{% if 'administrator' in roles %}
+{% else %}
+  <style>
+    ul.nav.nav-pills li:nth-child(3) {
+      display: none;
+    }
+  </style>
+{% endif %}
+
+<style>
+  .header-search.user-profile-tasks {
+    display: flex !important;
+  }
+  .header-search.user-profile-tasks .hero__btn {
+    margin-right: 10px;
+  }
+</style>
+
+<article{{ attributes }}>
+  <div class="table-responsive">
+    <table class="table .table-bordered">
+      <tr>
+        <td><b>Student ID</b></td>
+        <td>{{ user.id }}</td>
+      </tr>
+      <tr>
+        <td><b>Student Username</b></td>
+        <td>{{ user.name.value }}</td>
+      </tr>
+      <tr>
+        <td><b>Email</b></td>
+        <td>{{ user.mail.value }}</td>
+      </tr>
+      <tr>
+        <td><b>Full Name</b></td>
+        <td>{{ user.field_user_full_name.value }}</td>
+      </tr>
+      <tr>
+        <td><b>Contact Number</b></td>
+        <td>{{ user.field_user_contact_number.value }}</td>
+      </tr>
+    </table>
+    {% if 'administrator' in roles or 'manager' in roles %}
+
+    {% else %}
+      <div class="header-search d-none d-lg-block user-profile-tasks">
+        <div class="hero__btn">
+          <a href="/book-assignment" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Book New Assignment</a>
+        </div>
+        <div class="hero__btn">
+          <a href="/book-assignment" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">My Assignments</a>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</article>
