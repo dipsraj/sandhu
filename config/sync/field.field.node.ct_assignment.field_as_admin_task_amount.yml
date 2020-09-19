@@ -1,0 +1,23 @@
+uuid: a8329d34-9cfc-4826-910e-f86388e5846a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_admin_task_amount
+    - node.type.ct_assignment
+id: node.ct_assignment.field_as_admin_task_amount
+field_name: field_as_admin_task_amount
+entity_type: node
+bundle: ct_assignment
+label: 'Task Amount'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
