@@ -219,3 +219,9 @@ select {
 .feed-icons .csv-feed a:hover::after {
   color: #fff;
 }
+/* Comment Action Wrapper css */
+.comment-action-wrapper a{
+  font-size: 13px;
+  border-radius: 4px;
+  margin-right: 12px !important;
+}

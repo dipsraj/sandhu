@@ -80,7 +80,7 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
   if($form_id == "node_ct_assignment_edit_form") {
     $form['actions']['submit']['#value'] = t("Update");
     if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
-      $form['#title'] = "Update Attachments";
+      $form['#title'] = $form["title"]["widget"][0]["value"]["#default_value"] . " - Update Attachments";
       $form['title']['#access'] = FALSE;
       $form['field_as_description']['#access'] = FALSE;
       $form['field_as_field']['#access'] = FALSE;
@@ -101,7 +101,12 @@ function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $f
     }
   }
   if($form_id == "comment_comment_form") {
-    $form['actions']['submit']['#value'] = t("Send");
+    $nid = $form["#action"];
+    $nid = explode('/',$nid);
+    $nid = $nid[4];
+    $form['actions']['submit']['#value'] = t("Post Comment");
+    $form['actions']['submit']['#prefix'] = "<div class='comment-action-wrapper'><a href='/node/".$nid."/edit' class='button button--primary js-form-submit form-submit button-contactForm boxed-btn'>Attach Files</a>";
+    $form['actions']['submit']['#postfix'] = "</div>";
   }
 }
 
