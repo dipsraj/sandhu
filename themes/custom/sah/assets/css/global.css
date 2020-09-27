@@ -225,3 +225,8 @@ select {
   border-radius: 4px;
   margin-right: 12px !important;
 }
+
+/* Hide back to top botton */
+#back-top {
+  display: none !important;
+}
