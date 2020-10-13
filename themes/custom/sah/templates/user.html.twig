@@ -18,6 +18,11 @@
  * @ingroup themeable
  */
 #}
+
+{% set site_url = url("<current>") %}
+{% set page_link = site_url['#markup']|split('/')[3] %}
+{% if page_link == 'user' %}
+
 {% set roles = user.getroles(TRUE) %}
 {% if 'administrator' in roles %}
 {% else %}
@@ -76,3 +81,13 @@
 
   </div>
 </article>
+
+{% else %}
+
+  <article{{ attributes.addClass('profile') }}>
+    {% if content %}
+      {{- content -}}
+    {% endif %}
+  </article>
+
+{% endif %}
