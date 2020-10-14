@@ -37,3 +37,11 @@ sah_modifications.page_controller_contact_us:
     _title: 'Contact Us'
   requirements:
     _permission: 'access content'
+
+sah_modifications.page_controller_privacy:
+  path: '/privacy'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Privacy Policies'
+  requirements:
+    _permission: 'access content'
