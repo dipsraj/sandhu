@@ -251,3 +251,7 @@ select {
 .my-float {
   margin-top: 16px;
 }
+
+.is-manager .fb_dialog_content, .is-manager .float {
+  display: none !important;
+}
