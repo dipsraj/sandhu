@@ -1,0 +1,23 @@
+uuid: 1a5d07c8-e5b8-448d-b916-859401197118
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_reference_count
+    - node.type.ct_assignment
+id: node.ct_assignment.field_as_reference_count
+field_name: field_as_reference_count
+entity_type: node
+bundle: ct_assignment
+label: 'Reference Count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

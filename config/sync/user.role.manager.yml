@@ -1,0 +1,17 @@
+uuid: 3588fe01-f478-493d-aec9-b97f57f60733
+langcode: en
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+weight: 3
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'administer users'
+  - 'create page content'
+  - 'edit any ct_assignment content'
+  - 'edit any page content'
+  - 'edit own ct_assignment content'
+  - 'view any webform submission'
+  - 'view own unpublished content'

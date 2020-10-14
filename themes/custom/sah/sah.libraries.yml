@@ -1,0 +1,21 @@
+global-styling:
+  js:
+    assets/js/global.js: {}
+  css:
+    component:
+      assets/css/global.css: {}
+
+user-login-registration:
+  css:
+    component:
+      assets/css/user-login-registration.css: {}
+
+assignment-form:
+  css:
+    component:
+      assets/css/assignment-form.css: {}
+
+assignment-node:
+  css:
+    component:
+      assets/css/assignment-node.css: {}

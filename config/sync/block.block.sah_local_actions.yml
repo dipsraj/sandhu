@@ -1,0 +1,20 @@
+uuid: 6b3854ab-344a-419b-985e-d6dc0b619c96
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sah
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: sah_local_actions
+theme: sah
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

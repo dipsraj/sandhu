@@ -1,0 +1,111 @@
+sah_modifications.default_controller_get_quote:
+  path: '/get-quote'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\DefaultController::get_quote'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.default_controller_get_in_touch:
+  path: '/get-in-touch'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\DefaultController::get_in_touch'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.quote_price_form:
+  path: '/admin/quote-price'
+  defaults:
+    _form: '\Drupal\sah_modifications\Form\QuotePriceForm'
+    _title: 'Quote Price Form'
+  requirements:
+    _role: 'administrator+manager'
+
+sah_modifications.page_controller_about_us:
+  path: '/about-us'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'About Us'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_contact_us:
+  path: '/contact-us'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Contact Us'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_privacy:
+  path: '/privacy'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Privacy Policies'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_terms:
+  path: '/terms'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Terms & Conditions'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_services:
+  path: '/services'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Services'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_dissertation:
+  path: '/service/dissertation'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Dissertation'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_essay:
+  path: '/service/essay'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Essay'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_report:
+  path: '/service/report'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Report'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_online_test:
+  path: '/service/online'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Online Test'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_programming:
+  path: '/service/programming'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Computer Programming'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_development:
+  path: '/service/development'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Web and App Development'
+  requirements:
+    _permission: 'access content'

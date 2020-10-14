@@ -1,0 +1,184 @@
+{% include "@sah/header.html.twig" %}
+
+{% if page.highlighted %}
+  <div class="highlighted">
+    <aside class="layout-container section clearfix" role="complementary">
+      {{ page.highlighted }}
+    </aside>
+  </div>
+{% endif %}
+
+<main>
+  <!--? slider Area Start-->
+  <div class="slider-area ">
+    <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height d-flex align-items-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-7 col-md-8">
+              <div class="hero__caption">
+                <span data-animation="fadeInLeft" data-delay=".2s">Best Assignment Help Services</span>
+                <h1 data-animation="fadeInLeft" data-delay=".4s">Your assignments are safe in our
+                  hands!</h1>
+                <!-- Hero-btn -->
+                <div class="hero__btn">
+                  <a href="#get-quote" class="btn hero-btn" data-animation="fadeInLeft"
+                     data-delay=".8s">Get a Free Quote</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-5">
+              <div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
+                <img src="/themes/custom/sah/assets/img/hero/heroman.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Single Slider -->
+      <div class="single-slider slider-height d-flex align-items-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-7 col-md-8">
+              <div class="hero__caption">
+                <span data-animation="fadeInLeft" data-delay=".2s">Best Assignment Help Services</span>
+                <h1 data-animation="fadeInLeft" data-delay=".4s">Your assignments are safe in our
+                  hands!</h1>
+                <!-- Hero-btn -->
+                <div class="hero__btn">
+                  <a href="#get-quote" class="btn hero-btn" data-animation="fadeInLeft"
+                     data-delay=".8s">Get a Free Quote</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-5">
+              <div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
+                <img src="/themes/custom/sah/assets/img/hero/heroman.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+  <div class="testimonial-area section-padding30 section-bg" id="get-quote">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2 class="contact-title">Get a free quote</h2>
+          <form class="form-contact contact_form" action="/get-quote" method="post" id="contactForm"
+                novalidate="novalidate">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control valid single-input-primary" name="name" id="name"
+                         type="text"
+                         placeholder="Enter your name" required="required">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control valid single-input-primary" name="email" id="email"
+                         type="email"
+                         placeholder="Email" required="required">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control single-input-primary" name="subject" id="subject"
+                         type="text"
+                         placeholder="Enter Subject" required="required">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control single-input-primary" name="pages" id="pages"
+                         type="number"
+                         placeholder="Enter Number of pages" required="required">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                                <textarea class="form-control w-100 single-input-primary" name="description" id="description"
+                                          cols="30" rows="2"
+                                          placeholder="Enter Assignment Description" required="required"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control single-input-primary" name="deadline" id="deadline"
+                         type="text"
+                         placeholder="Select Deadline"
+                         onfocus="(this.type='date')"
+                         onblur="(this.type='text')" required="required">
+                </div>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="submit" class="button button-contactForm boxed-btn" value="Get Free Quote" />
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6 about-logo">
+          <img src="/themes/custom/sah/assets/img/logo/sahlogo.png" alt="">
+        </div>
+      </div>
+    </div>
+    <!--? Categories Area Start -->
+    {% include "@sah/static-services-grid.html.twig" %}
+    <!-- Categories Area End -->
+    <!--? Count Down Start -->
+    {% include "@sah/static-counter.html.twig" %}
+    <!--? Count Down End -->
+    <!--? About Law Start-->
+    <div class="about-area section-padding2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="about-caption mb-50">
+              <!-- Section Tittle -->
+              <div class="section-tittle mb-35">
+                <span>More About Our Company</span>
+                <h2>Sandhu Assignment Help</h2>
+              </div>
+              <p>Our distinctive and quality online assignment help services make us top and leading service provider
+                across the globe. Education indeed the most significant part of every student’s life and our vision is
+                to make their efforts more effective and productive for their development. We are dedicated to provide
+                quality and informative online academic writing services to reduce peers’ stress and academic workload.
+                We are progressively working on developing various platforms for boosting students’ knowledge and
+                enhancing their writing attributes. Our team has focused and enthusiastic assignment helpers who are
+                keen to offer effective assistance so that every single peer can cope up with difficult assignment
+                writing.</p>
+              <ul>
+                <li><span class="flaticon-business"></span> Top quality academic writers’ assistance</li>
+                <li><span class="flaticon-communications-1"></span> 24x7 Guidance and Customer Support</li>
+                <li><span class="flaticon-graduated"></span> A+ quality and plagiarism-free academic papers</li>
+                <li><span class="flaticon-tools-and-utensils"></span> On time project delivering without adhering to
+                  university guidelines
+                </li>
+              </ul>
+              <a href="/about-us" class="btn">More About Us</a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <!-- about-img -->
+            <!--                        <div class="about-img ">-->
+
+            <div class="about-back-img about-logo">
+              <img src="/themes/custom/sah/assets/img/gallery/about1.png" alt="">
+            </div>
+            <!--                        </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About Law End-->
+    <!--? Testimonial Start -->
+    {% include "@sah/static-testimonial-slider.html.twig" %}
+    <!-- Testimonial End -->
+  </div>
+</main>
+
+{% include "@sah/footer.html.twig" %}

@@ -11,3 +11,8 @@ services:
     type: mailhog
     hogfrom:
       - appserver
+tooling:
+    drush:
+        cmd: vendor/drush/drush/drush
+    drupal:
+        cmd: vendor/drupal/console/bin/drupal

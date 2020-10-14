@@ -1,0 +1,23 @@
+uuid: 362260d7-96e7-4735-9956-6c98f1366f1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_admin_assignment_status
+    - node.type.ct_assignment
+  module:
+    - options
+id: node.ct_assignment.field_as_admin_assignment_status
+field_name: field_as_admin_assignment_status
+entity_type: node
+bundle: ct_assignment
+label: 'Assignment Status'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: Pending
+default_value_callback: ''
+settings: {  }
+field_type: list_string

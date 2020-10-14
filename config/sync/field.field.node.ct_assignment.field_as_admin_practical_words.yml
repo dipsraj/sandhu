@@ -1,0 +1,23 @@
+uuid: d37e69ef-db45-4e75-a2b4-f190606158fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_admin_practical_words
+    - node.type.ct_assignment
+id: node.ct_assignment.field_as_admin_practical_words
+field_name: field_as_admin_practical_words
+entity_type: node
+bundle: ct_assignment
+label: 'Practical Words'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

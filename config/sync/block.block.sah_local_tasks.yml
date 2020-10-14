@@ -1,0 +1,22 @@
+uuid: 2717854c-19e5-4d5f-9fe2-c62963c32bad
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sah
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: sah_local_tasks
+theme: sah
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

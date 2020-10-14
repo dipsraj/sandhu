@@ -1,0 +1,61 @@
+diff --git a/src/Plugin/Mail/HTMLMailSystem.php b/src/Plugin/Mail/HTMLMailSystem.php
+index ef4d674..c28f3b4 100644
+--- a/src/Plugin/Mail/HTMLMailSystem.php
++++ b/src/Plugin/Mail/HTMLMailSystem.php
+@@ -182,7 +182,7 @@ class HTMLMailSystem implements MailInterface, ContainerFactoryPluginInterface {
+         // Join the body array into one string.
+         $message['body'] = implode("$eol$eol", $message['body']);
+         // Convert any HTML to plain-text.
+-        $message['body'] = MailFormatHelper::htmlToText($message['body']);
++        //$message['body'] = MailFormatHelper::htmlToText($message['body']);
+         // Wrap the mail body for sending.
+         $message['body'] = MailFormatHelper::wrapMail($message['body']);
+       }
+diff --git a/templates/htmlmail--htmlmail.html.twig b/templates/htmlmail--htmlmail.html.twig
+index fed2608..6d448f2 100644
+--- a/templates/htmlmail--htmlmail.html.twig
++++ b/templates/htmlmail--htmlmail.html.twig
+@@ -12,7 +12,7 @@
+  #}
+ <h1><a href="http://drupal.org/project/htmlmail">HTML Mail</a> test message</h1>
+ <div class="htmlmail-body">
+-    {{ message.body }}
++    {{ message.body|raw }}
+ </div>
+ {% if debug %}
+ <hr />
+diff --git a/templates/htmlmail--user--password_reset.html.twig b/templates/htmlmail--user--password_reset.html.twig
+index befb534..5f49df3 100644
+--- a/templates/htmlmail--user--password_reset.html.twig
++++ b/templates/htmlmail--user--password_reset.html.twig
+@@ -49,7 +49,7 @@
+ #}
+ 
+ <div class="htmlmail-user-password-reset-body htmlmail-user-body htmlmail-body">
+-    {{ message.body }}
++    {{ message.body|raw }}
+ </div>
+ {% if debug %}
+ <hr />
+@@ -120,7 +120,7 @@
+                 <li>
+                     <p>Edit the copied file.</p>
+                 </li>
+-                {% endif %}
++{#                {% endif %}#}
+                 <li>
+                     <p>Send a test message to make sure your customizations worked.</p>
+                 </li>
+diff --git a/templates/htmlmail.html.twig b/templates/htmlmail.html.twig
+index 6fc7b1b..8529e3c 100644
+--- a/templates/htmlmail.html.twig
++++ b/templates/htmlmail.html.twig
+@@ -105,7 +105,7 @@
+ */
+ #}
+ <div class="htmlmail-body">
+-    {{ message.body }}
++    {{ message.body|raw }}
+ </div>
+ 
+ {% if debug %}

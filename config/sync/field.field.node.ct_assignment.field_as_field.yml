@@ -1,0 +1,29 @@
+uuid: 30ea7b5b-fcc1-4b6f-a235-6014ceb4bae8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_field
+    - node.type.ct_assignment
+    - taxonomy.vocabulary.taxonomy_assignment_field
+id: node.ct_assignment.field_as_field
+field_name: field_as_field
+entity_type: node
+bundle: ct_assignment
+label: 'Assignment Field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      taxonomy_assignment_field: taxonomy_assignment_field
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

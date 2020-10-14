@@ -1,0 +1,264 @@
+<?php
+
+/**
+ * @file
+ * Contains sah_modifications.module.
+ */
+
+use Drupal\comment\Entity\Comment;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\Entity\File;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_help().
+ */
+function sah_modifications_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sah_modifications module.
+    case 'help.page.sah_modifications':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom modifications for SAH') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function sah_modifications_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'comment_notification':
+    case 'quote_notification_user':
+    case 'new_assignment_notification':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['salutation'] = $params['salutation'];
+      $message['data'] = $params['data'];
+      break;
+  }
+}
+
+/**
+ * implements hook_mail_alter()
+ */
+function sah_modifications_mail_alter(&$message) {
+  if($message['id'] == 'user_register_no_approval_required' || $message['id'] == 'user_password_reset') {
+    $account = $message['params']['account'];
+    $data = [];
+    $data['username'] = $account->name->value;
+    $data['url'] = user_pass_reset_url($account);
+    $message['data'] = $data;
+  }
+}
+
+/**
+ * implements hook_form_alter()
+ */
+function sah_modifications_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  if($form_id == "node_ct_assignment_form") {
+    $form['#title'] = "Book Assignment";
+    $form['actions']['submit']['#value'] = t("Book");
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
+      $form['field_as_admin_write_up_words']['#access'] = FALSE;
+      $form['field_as_admin_practical_words']['#access'] = FALSE;
+      $form['field_as_admin_assignment_status']['#access'] = FALSE;
+      $form['field_as_admin_solutions']['#access'] = FALSE;
+      $form['field_as_admin_freelancer']['#access'] = FALSE;
+      $form['field_as_admin_task_amount']['#access'] = FALSE;
+    }
+    else {
+      $form['actions']['submit']['#submit'][] = 'assignment_post_submit';
+    }
+  }
+  if($form_id == "node_ct_assignment_edit_form") {
+    $form['actions']['submit']['#value'] = t("Update");
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
+      $form['#title'] = $form["title"]["widget"][0]["value"]["#default_value"] . " - Update Attachments";
+      $form['title']['#access'] = FALSE;
+      $form['field_as_description']['#access'] = FALSE;
+      $form['field_as_field']['#access'] = FALSE;
+      $form['field_as_topic']['#access'] = FALSE;
+      $form['field_as_expected_delivery']['#access'] = FALSE;
+      $form['field_as_reference_count']['#access'] = FALSE;
+      $form['field_as_reference_style']['#access'] = FALSE;
+      $form['field_as_serial']['#access'] = FALSE;
+      $form['field_as_university_country']['#access'] = FALSE;
+      $form['field_as_words']['#access'] = FALSE;
+      $form['field_as_admin_write_up_words']['#access'] = FALSE;
+      $form['field_as_admin_practical_words']['#access'] = FALSE;
+      $form['field_as_admin_assignment_status']['#access'] = FALSE;
+      $form['field_as_admin_solutions']['#access'] = FALSE;
+      $form['field_as_admin_freelancer']['#access'] = FALSE;
+      $form['field_as_admin_task_amount']['#access'] = FALSE;
+    }
+    else {
+      $form['actions']['submit']['#submit'][] = 'assignment_post_submit';
+    }
+  }
+  if($form_id == "comment_comment_form") {
+    $nid = $form["#action"];
+    $nid = explode('/',$nid);
+    $nid = $nid[4];
+    $form['actions']['submit']['#value'] = t("Post Comment");
+    $form['actions']['submit']['#prefix'] = "<div class='comment-action-wrapper'><a href='/node/".$nid."/edit' class='button button--primary js-form-submit form-submit button-contactForm boxed-btn'>Attach Files</a>";
+    $form['actions']['submit']['#postfix'] = "</div>";
+  }
+}
+
+/**
+ * implements hook_entity_insert()
+ */
+function sah_modifications_entity_insert(Drupal\Core\Entity\EntityInterface $node) {
+  if ($node->getEntityTypeId() == "node" && $node->getType() == "ct_assignment") {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'sah_modifications';
+    $key = 'new_assignment_notification';
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+
+    $nid = $node->id();
+    $order_id = $node->field_as_serial->value;
+    $order_id = sprintf('%06d', $order_id);
+    $title = $node->getTitle();
+    $student_id = $node->getOwnerID();
+    $student = User::load($student_id);
+    $student_email = $student->getEmail();
+    $student_username = $student->getUsername();
+
+    $host = \Drupal::request()->getSchemeAndHttpHost();
+    $params['data']['student_email'] = $student_email;
+    $params['data']['student_username'] = $student_username;
+    $params['data']['student_link'] = $host . \Drupal::service('path.alias_manager')->getAliasByPath('/user/'.$student_id);
+    $params['data']['order_id'] = $order_id;
+    $params['data']['order_link'] = $host . '/node/' . $nid;
+    $params['data']['title'] = $title;
+
+    $params['data']['field'] = Term::load($node->field_as_field->target_id)->getName();
+    $params['data']['topic'] = Term::load($node->field_as_topic->target_id)->getName();
+    $params['data']['desc'] = $node->field_as_description->value;
+    $params['data']['delivery'] = \Drupal::service('date.formatter')->format($node->field_as_expected_delivery->date->getTimestamp(), 'custom', "d-M-Y, H:i" );
+    $params['data']['words'] = $node->field_as_words->value;
+
+    $to = \Drupal::config('system.site')->get('mail');
+    $params['subject'] = 'New Assignment Booked - ' . $title;
+    $params['salutation'] = "Hello Admin,";
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  }
+}
+
+/**
+ * implements hook_entity_update()
+ */
+function sah_modifications_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == "node" && $entity->getType() == "ct_assignment") {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+
+    // Adding Automated comment if Student updates file attachments
+    if (!in_array('administrator',$roles) && !in_array('manager',$roles)) {
+      auto_comment_post($entity, 'field_as_attachment', 'Student Auto Comment for Attachment Upload', 'I have added new attachment(s).');
+    }
+    // Adding Automated comment if Admin uploads solution files
+    else {
+      auto_comment_post($entity, 'field_as_admin_solutions', 'Admin Auto Comment for Solution Upload', 'Solution Uploaded.');
+    }
+  }
+}
+
+function auto_comment_post ($entity, $field_name, $subject, $msg) {
+  $original_count=0;
+  foreach($entity->original->get($field_name)->getValue() as $file_id){
+    $original_count+=1;
+  }
+  $new_count=0;
+  foreach($entity->get($field_name)->getValue() as $file_id){
+    $new_count+=1;
+  }
+  if ($new_count != $original_count) {
+    $file_names = [];
+    foreach($entity->get($field_name)->getValue() as $file_id){
+      $file = File::load($file_id['target_id']);
+      $file_names[] = '<li>'.$file->filename->value.'</li>';
+    }
+    $file_names = array_reverse($file_names, TRUE);
+    $values = [
+      'entity_type' => 'node',
+      'entity_id'   => $entity->id(),
+      'field_name'  => 'field_as_comment',
+      'uid' => \Drupal::currentUser()->id(),
+      'comment_type' => 'comment',
+      'subject' => $subject,
+      'comment_body' => [
+        'summary' => '',
+        'value' => $msg . ' The updated set of file(s) are: <ul>'.implode('', $file_names).'</ul>',
+        'format' => 'basic_html',
+      ],
+      'status' => 1,
+    ];
+    $comment = Comment::create($values);
+    $comment->save();
+  }
+}
+
+function assignment_post_submit(&$form, FormStateInterface $form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+  $write_up_words = 0;
+  if($entity->get('field_as_admin_write_up_words')->getValue()) {
+    $write_up_words = intval($entity->field_as_admin_write_up_words->value);
+  }
+  $practical_words = 0;
+  if($entity->get('field_as_admin_practical_words')->getValue()) {
+    $practical_words = intval($entity->field_as_admin_practical_words->value);
+  }
+  $entity->set('field_as_words',$write_up_words+$practical_words)->save();
+}
+
+/**
+ * implements hook_comment_insert()
+ */
+function sah_modifications_comment_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+  // Sending Mail for New Comments
+  $uid = $entity->getOwnerId();
+  $user = User::load($uid);
+  $roles = $user->getRoles();
+
+  $nid = $entity->entity_id->target_id;
+  $node = Node::load($nid);
+  $order_id = $node->field_as_serial->value;
+  $order_id = sprintf('%06d', $order_id);
+  $title = $node->getTitle();
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'sah_modifications';
+  $key = 'comment_notification';
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = true;
+  $params['subject'] = 'New Message for Order ID - ' . $order_id;
+  $params['salutation'] = "Hello,";
+
+  if (in_array('administrator',$roles) || in_array('manager',$roles)) {
+    $to = User::load($node->getOwnerID())->getEmail();
+    $user_type = "Admin";
+  }
+  else {
+    $to = \Drupal::config('system.site')->get('mail');
+    $user_type = "Student";
+  }
+
+  $params['data']['user_type'] = $user_type;
+  $params['data']['order_id'] = $order_id;
+  $params['data']['order_title'] = $title;
+  $params['data']['order_link'] = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+  $params['data']['comment_body'] = $entity->comment_body->value;
+  $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+}

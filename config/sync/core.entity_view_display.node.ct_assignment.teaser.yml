@@ -1,0 +1,54 @@
+uuid: bd911731-ada8-4ebd-8439-efb333b16962
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ct_assignment.field_as_admin_assignment_status
+    - field.field.node.ct_assignment.field_as_admin_freelancer
+    - field.field.node.ct_assignment.field_as_admin_practical_words
+    - field.field.node.ct_assignment.field_as_admin_solutions
+    - field.field.node.ct_assignment.field_as_admin_task_amount
+    - field.field.node.ct_assignment.field_as_admin_write_up_words
+    - field.field.node.ct_assignment.field_as_attachment
+    - field.field.node.ct_assignment.field_as_comment
+    - field.field.node.ct_assignment.field_as_description
+    - field.field.node.ct_assignment.field_as_expected_delivery
+    - field.field.node.ct_assignment.field_as_field
+    - field.field.node.ct_assignment.field_as_reference_count
+    - field.field.node.ct_assignment.field_as_reference_style
+    - field.field.node.ct_assignment.field_as_serial
+    - field.field.node.ct_assignment.field_as_topic
+    - field.field.node.ct_assignment.field_as_university_country
+    - field.field.node.ct_assignment.field_as_words
+    - node.type.ct_assignment
+  module:
+    - user
+id: node.ct_assignment.teaser
+targetEntityType: node
+bundle: ct_assignment
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_as_admin_assignment_status: true
+  field_as_admin_freelancer: true
+  field_as_admin_practical_words: true
+  field_as_admin_solutions: true
+  field_as_admin_task_amount: true
+  field_as_admin_write_up_words: true
+  field_as_attachment: true
+  field_as_comment: true
+  field_as_description: true
+  field_as_expected_delivery: true
+  field_as_field: true
+  field_as_reference_count: true
+  field_as_reference_style: true
+  field_as_serial: true
+  field_as_topic: true
+  field_as_university_country: true
+  field_as_words: true

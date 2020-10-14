@@ -1,0 +1,138 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain one or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{% set roles = user.getroles(TRUE) %}
+{%
+  set body_classes = [
+  logged_in ? 'user-logged-in',
+  not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+  node_type ? 'page-node-type-' ~ node_type|clean_class,
+  db_offline ? 'db-offline',
+  'administrator' in roles or 'manager' in roles ? 'is-manager' : 'is-student'
+]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+    <head>
+        <head-placeholder token="{{ placeholder_token }}">
+        <title>{{ head_title|safe_join(' | ') }}</title>
+        <css-placeholder token="{{ placeholder_token }}">
+        <js-placeholder token="{{ placeholder_token }}">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/slicknav.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/gijgo.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/slick.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/nice-select.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/style.css">
+        <link rel="stylesheet" href="/themes/custom/sah/assets/css/custom-styles.css">
+    </head>
+    <body{{ attributes.addClass(body_classes) }}>
+        {#
+          Keyboard navigation/accessibility link to main content section in
+          page.html.twig.
+        #}
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+          {{ 'Skip to main content'|t }}
+        </a>
+        {{ page_top }}
+        {{ page }}
+        {{ page_bottom }}
+        <js-bottom-placeholder token="{{ placeholder_token }}">
+        <!-- JS here -->
+        <script src="/themes/custom/sah/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <!-- Jquery, Popper, Bootstrap -->
+        <script src="/themes/custom/sah/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/themes/custom/sah/assets/js/popper.min.js"></script>
+        <script src="/themes/custom/sah/assets/js/bootstrap.min.js"></script>
+        <!-- Jquery Mobile Menu -->
+        <script src="/themes/custom/sah/assets/js/jquery.slicknav.min.js"></script>
+
+        <!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="/themes/custom/sah/assets/js/owl.carousel.min.js"></script>
+        <script src="/themes/custom/sah/assets/js/slick.min.js"></script>
+        <!-- One Page, Animated-HeadLin -->
+        <script src="/themes/custom/sah/assets/js/wow.min.js"></script>
+        <script src="/themes/custom/sah/assets/js/animated.headline.js"></script>
+        <script src="/themes/custom/sah/assets/js/jquery.magnific-popup.js"></script>
+
+        <!-- Date Picker -->
+        <script src="/themes/custom/sah/assets/js/gijgo.min.js"></script>
+        <!-- Nice-select, sticky -->
+{#        <script src="/themes/custom/sah/assets/js/jquery.nice-select.min.js"></script>#}
+        <script src="/themes/custom/sah/assets/js/jquery.sticky.js"></script>
+
+        <!-- counter , waypoint -->
+        <script src="/themes/custom/sah/assets/js/jquery.counterup.min.js"></script>
+        <script src="/themes/custom/sah/assets/js/waypoints.min.js"></script>
+
+        <!-- contact js -->
+{#        <script src="/themes/custom/sah/assets/js/contact.js"></script>#}
+{#        <script src="/themes/custom/sah/assets/js/jquery.form.js"></script>#}
+{#        <script src="/themes/custom/sah/assets/js/jquery.validate.min.js"></script>#}
+{#        <script src="/themes/custom/sah/assets/js/mail-script.js"></script>#}
+{#        <script src="/themes/custom/sah/assets/js/jquery.ajaxchimp.min.js"></script>#}
+
+        <!-- Jquery Plugins, main Jquery -->
+        <script src="/themes/custom/sah/assets/js/plugins.js"></script>
+        <script src="/themes/custom/sah/assets/js/main.js"></script>
+        <!-- Load Facebook SDK for JavaScript -->
+          <div id="fb-root"></div>
+          <script>
+            window.fbAsyncInit = function () {
+              FB.init({
+                xfbml: true,
+                version: 'v8.0'
+              });
+            };
+
+            (function (d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {
+                return;
+              }
+              js = d.createElement(s);
+              js.id = id;
+              js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+          </script>
+
+          <!-- Your Chat Plugin code -->
+          <div class="fb-customerchat"
+               attribution=setup_tool
+               page_id="115179550339278"
+               theme_color="#2d3092">
+          </div>
+          <a href="https://api.whatsapp.com/send?phone=919508694329&text=Hi%2C+I+came+from+Sandhu+Assignment+Help+Website+and+would+like+to+get+help+with+some+queries." class="float" target="_blank">
+            <i class="fab fa-whatsapp my-float"></i>
+          </a>
+    </body>
+</html>

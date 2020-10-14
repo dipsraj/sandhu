@@ -1,0 +1,8 @@
+uuid: a72677f9-007b-44ae-9dcb-b04f205762fe
+langcode: en
+status: true
+dependencies: {  }
+name: 'Assignment Topic'
+vid: taxonomy_assignment_topic
+description: ''
+weight: 0

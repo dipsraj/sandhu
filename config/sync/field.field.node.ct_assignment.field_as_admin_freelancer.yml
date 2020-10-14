@@ -1,0 +1,19 @@
+uuid: b69247bd-57b2-48c2-8cef-8de75568c102
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_admin_freelancer
+    - node.type.ct_assignment
+id: node.ct_assignment.field_as_admin_freelancer
+field_name: field_as_admin_freelancer
+entity_type: node
+bundle: ct_assignment
+label: 'Assigned Freelancer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

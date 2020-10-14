@@ -16,11 +16,26 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
         "drupal/admin_toolbar": "^2.3",
+        "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/console": "^1.9",
+        "drupal/content_access": "^1.0@alpha",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/country": "^1.0@beta",
+        "drupal/devel": "^4.0",
+        "drupal/field_group": "^3.1",
+        "drupal/htmlmail": "^3.0@alpha",
+        "drupal/mailsystem": "^4.3",
+        "drupal/pathauto": "^1.8",
+        "drupal/r4032login": "^1.1",
+        "drupal/redirect_after_login": "^2.6",
+        "drupal/serial": "^1.0@alpha",
+        "drupal/views_data_export": "^1.0",
+        "drupal/webform": "^5.19",
+        "drupal/webform_views": "^5.0@alpha",
         "drush/drush": "^10.3"
     },
     "conflict": {
@@ -83,6 +98,11 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "patches": {
+            "drupal/htmlmail": {
+                "Formatted tags to plain text disabled": "patches/allow-html-formatted-body-3005217-10.patch"
+            }
         }
     }
 }

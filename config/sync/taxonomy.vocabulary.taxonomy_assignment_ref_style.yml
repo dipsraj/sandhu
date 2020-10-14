@@ -1,0 +1,8 @@
+uuid: 0bba9eb9-43ef-476d-a7c6-95237d929273
+langcode: en
+status: true
+dependencies: {  }
+name: 'Assignment Reference Style'
+vid: taxonomy_assignment_ref_style
+description: ''
+weight: 0

@@ -1,0 +1,33 @@
+uuid: 5f9c4e10-080b-41ea-a63f-0335c9e099e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_as_comment
+    - node.type.ct_assignment
+  module:
+    - comment
+id: node.ct_assignment.field_as_comment
+field_name: field_as_comment
+entity_type: node
+bundle: ct_assignment
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 10
+  anonymous: 0
+  form_location: true
+  preview: 0
+field_type: comment

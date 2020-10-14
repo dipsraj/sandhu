@@ -1,0 +1,5 @@
+name: 'SAH Modifications'
+type: module
+description: 'Custom modifications for SAH'
+core: 8.x
+package: 'Custom'

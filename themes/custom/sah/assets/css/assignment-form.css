@@ -1,0 +1,24 @@
+#edit-field-as-expected-delivery-0-value {
+  display: flex;
+}
+div .form-type-date {
+  width: 100%;
+  margin-right: 10px;
+}
+@media only screen and (min-width: 992px){
+  .field-group-html-element.topic-wrapper, .field-group-html-element.reference-wrapper {
+    display: flex;
+  }
+  .field-group-html-element.topic-wrapper > div, .field-group-html-element.reference-wrapper > div {
+    max-width: 50%;
+    width: 50%;
+  }
+  #edit-field-as-topic-wrapper, #edit-field-as-reference-style-wrapper {
+    margin-right: 10px;
+  }
+  .field-group-html-element.topic-wrapper > div > div, .field-group-html-element.reference-wrapper > div > div {
+    width: 100%;
+  }
+}
+
+

@@ -1,0 +1,22 @@
+uuid: e67d9f51-dbf7-4eff-8a60-eea70d3f9622
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sah
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: sah_messages
+theme: sah
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }
