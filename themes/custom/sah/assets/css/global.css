@@ -1,3 +1,12 @@
+.services-temp li {
+  list-style: disc;
+  margin-top: 10px;
+}
+
+.services-temp h5 {
+  margin-top: 25px
+}
+
 .alert-wrapper {
   position: fixed;
   bottom: 20px;
@@ -252,6 +261,7 @@ select {
   margin-top: 16px;
 }
 
+/* Hiding fb and whatsapp button for admin and manager */
 .is-manager .fb_dialog_content, .is-manager .float {
   display: none !important;
 }

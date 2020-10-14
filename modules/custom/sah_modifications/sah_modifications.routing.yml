@@ -61,3 +61,51 @@ sah_modifications.page_controller_services:
     _title: 'Services'
   requirements:
     _permission: 'access content'
+
+sah_modifications.page_controller_service_dissertation:
+  path: '/service/dissertation'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Dissertation'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_essay:
+  path: '/service/essay'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Essay'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_report:
+  path: '/service/report'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Report'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_online_test:
+  path: '/service/online-test'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Online Test'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_programming:
+  path: '/service/programming'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Computer Programming'
+  requirements:
+    _permission: 'access content'
+
+sah_modifications.page_controller_service_development:
+  path: '/service/development'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Web and App Development'
+  requirements:
+    _permission: 'access content'
