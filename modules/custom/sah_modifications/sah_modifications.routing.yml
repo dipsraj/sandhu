@@ -87,7 +87,7 @@ sah_modifications.page_controller_service_report:
     _permission: 'access content'
 
 sah_modifications.page_controller_service_online_test:
-  path: '/service/online-test'
+  path: '/service/online'
   defaults:
     _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
     _title: 'Online Test'
