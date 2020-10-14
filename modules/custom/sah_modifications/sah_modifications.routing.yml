@@ -53,3 +53,11 @@ sah_modifications.page_controller_terms:
     _title: 'Terms & Conditions'
   requirements:
     _permission: 'access content'
+
+sah_modifications.page_controller_services:
+  path: '/services'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Services'
+  requirements:
+    _permission: 'access content'
