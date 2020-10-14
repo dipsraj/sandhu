@@ -45,3 +45,11 @@ sah_modifications.page_controller_privacy:
     _title: 'Privacy Policies'
   requirements:
     _permission: 'access content'
+
+sah_modifications.page_controller_terms:
+  path: '/terms'
+  defaults:
+    _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
+    _title: 'Terms & Conditions'
+  requirements:
+    _permission: 'access content'
