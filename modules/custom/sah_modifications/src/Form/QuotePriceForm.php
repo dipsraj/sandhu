@@ -33,7 +33,7 @@ class QuotePriceForm extends ConfigFormBase {
     $config = $this->config('sah_modifications.quote_price');
     $form['price'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Price per Page(250 words) in USD'),
+      '#title' => $this->t('Price per Page(250 words) in AUD'),
       '#maxlength' => 64,
       '#size' => 64,
       '#default_value' => $config->get('price'),
