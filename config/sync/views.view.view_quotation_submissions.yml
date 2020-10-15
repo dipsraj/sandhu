@@ -11,7 +11,7 @@ dependencies:
     - webform
     - webform_views
 id: view_quotation_submissions
-label: 'Quotation Submissions'
+label: 'Quotation Queries'
 module: views
 description: ''
 tag: ''
@@ -507,7 +507,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts: {  }
-      title: 'Quotation Submissions'
+      title: 'Quotation Queries'
       header: {  }
       footer: {  }
       empty: {  }
