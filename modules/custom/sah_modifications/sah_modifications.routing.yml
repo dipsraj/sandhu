@@ -42,7 +42,7 @@ sah_modifications.page_controller_privacy:
   path: '/privacy'
   defaults:
     _controller: '\Drupal\sah_modifications\Controller\PageController::load_page'
-    _title: 'Privacy Policies'
+    _title: 'Privacy Policy'
   requirements:
     _permission: 'access content'
 
