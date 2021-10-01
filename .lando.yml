@@ -2,6 +2,7 @@ name: san
 recipe: drupal8
 config:
   php:  '7.3'
+  composer_version: '1.10.1'
   webroot: .
   xdebug: true
 services:

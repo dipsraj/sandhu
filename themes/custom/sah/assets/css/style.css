@@ -6990,3 +6990,16 @@ html {
 .services-temp img {
     width: 100%;
 }
+
+.custom-footer a{
+  color: #018fe2 !important;
+}
+.custom-footer a:hover{
+  color: #fff !important;
+}
+@media only screen and (min-width: 760px) {
+  .custom-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
