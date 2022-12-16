@@ -21,6 +21,8 @@ dependencies:
     - field.field.node.ct_assignment.field_as_topic
     - field.field.node.ct_assignment.field_as_university_country
     - field.field.node.ct_assignment.field_as_words
+    - field.field.node.ct_assignment.field_meta_tags
+    - field.field.node.ct_assignment.field_yoast_seo
     - node.type.ct_assignment
   module:
     - user
@@ -52,3 +54,5 @@ hidden:
   field_as_topic: true
   field_as_university_country: true
   field_as_words: true
+  field_meta_tags: true
+  field_yoast_seo: true
