@@ -6,42 +6,32 @@ links:
   -
     path: /contact-us
     priority: '0.5'
-    changefreq: ''
   -
     path: /about-us
     priority: '0.5'
-    changefreq: ''
   -
     path: /privacy
     priority: '0.5'
-    changefreq: ''
   -
     path: /terms
     priority: '0.5'
-    changefreq: ''
   -
     path: /services
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/dissertation
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/essay
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/report
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/online
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/programming
     priority: '0.5'
-    changefreq: ''
   -
     path: /service/development
