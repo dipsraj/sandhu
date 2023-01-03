@@ -5,8 +5,6 @@ dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: OPbEEQAzvu7mP33Ykbxa3jKQIHhzedZf1pY27da5baU
 open: null
 close: null
 weight: 0
@@ -147,6 +145,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  token_delete: false
   serial_disabled: false
 access:
   create:
@@ -199,6 +198,7 @@ handlers:
   email_confirmation:
     id: email
     label: 'Email confirmation'
+    notes: ''
     handler_id: email_confirmation
     status: false
     conditions: {  }
@@ -206,7 +206,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:email:raw]'
+      to_mail: '[current-user:mail]'
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
@@ -235,6 +235,7 @@ handlers:
   email_notification:
     id: email
     label: 'Email notification'
+    notes: ''
     handler_id: email_notification
     status: true
     conditions: {  }
@@ -269,3 +270,5 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
+_core:
+  default_config_hash: OPbEEQAzvu7mP33Ykbxa3jKQIHhzedZf1pY27da5baU
