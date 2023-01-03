@@ -43,3 +43,57 @@ function sah_preprocess_comment (&$variables) {
   $created = $variables['comment']->created->value;
   $variables['created'] = \Drupal::service('date.formatter')->format($created, 'custom', "d-M-Y, H:i" );
 }
+
+function sah_preprocess_html (&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+  $title = null;
+  $desc = null;
+
+  if ($current_path_alias == '/node') {
+    $title = "Assignment help services Canada, Australia | Sandhu Assignment Help";
+    $desc = "Avail our distinctive and plagiarism-free assignment help services in Canada, Australia. We provide 24*7 guidance, to reduce your academic workload. Chat on Messenger for assistance";
+  }
+  if ($current_path_alias == '/service/dissertation') {
+    $title = "Dissertation Assignment help Canada, Australia | Sandhu Assignment Help";
+    $desc = "Contact our best academic writers for dissertation assignment help in Canada, Australia. We help students write their dissertations. Also, you can chat with us.";
+  }
+  if ($current_path_alias == '/service/essay') {
+    $title = "Essay writing Assignment help services Canada, Australia | Sandhu Assignment Help";
+    $desc = "Our specialised writers will provide essay writing assignment help services in Canada, Australia in the desired format. They will provide authentic work to students. Chat with us or call us for help.";
+  }
+  if ($current_path_alias == '/service/report') {
+    $title = "Report Writing Assignment help servicesCanada, Australia | Sandhu Assignment Help";
+    $desc = "For report writing assignment help services Canada, Australia choose us. Our writers are capable of composing highly structured reports. Give us a call now.";
+  }
+  if ($current_path_alias == '/service/online') {
+    $title = "Online Tests and Quiz Solutions Canada, Australia | Sandhu Assignment Help";
+    $desc = "Our online tests and quiz solutions in Canada, Australia are priced affordably as we understand the stringent student budget. Let’s get social through Facebook.";
+  }
+  if ($current_path_alias == '/service/programming') {
+    $title = "Computer Programming Assignment help services Canada, Australia | Sandhu Assignment Help";
+    $desc = "Avail our computer programming assignment help services in Canada, Australia, as we will be your one-stop solution. Get in touch with our programming experts through call or chat.";
+  }
+  if ($current_path_alias == '/service/development') {
+    $title = "Web and Graphic Designing Assignments Canada, Australia | Sandhu Assignment Help";
+    $desc = "Get adequate assistance regarding web and graphic designing assignments in Canada, Australia. We use Adobe products to make your website more attractive. Contact us for more details.";
+  }
+  if ($current_path_alias == '/contact-us') {
+    $title = "Assignment help services Canada, Australia | Sandhu Assignment Help";
+    $desc = "Get benefitted from our assignment help services now in Canada, Australia. We are available 24/7 for your needs. Else, you can send us a query anytime.";
+  }
+
+  if ($title)
+    $variables["head_title"]["title"] = $title;
+  if($desc)
+    $variables['page']['#attached']['html_head'][] = [
+      [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'name' => 'description',
+          'content' => $desc,
+        ],
+      ], 'description'
+    ];
+}
