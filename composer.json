@@ -36,7 +36,7 @@
         "drupal/redirect_after_login": "^2.6",
         "drupal/robotstxt": "^1.4",
         "drupal/serial": "^1.0@alpha",
-        "drupal/simple_sitemap": "^3.11",
+        "drupal/simple_sitemap": "^4.1",
         "drupal/views_data_export": "^1.0",
         "drupal/webform": "^5.19",
         "drupal/webform_views": "^5.0@alpha",
