@@ -1,0 +1,97 @@
+{% include "@sah/header.html.twig" %}
+
+{% if page.highlighted %}
+  <div class="highlighted">
+    <aside class="layout-container section clearfix" role="complementary">
+      {{ page.highlighted }}
+    </aside>
+  </div>
+{% endif %}
+
+<main>
+  <!--? slider Area Start-->
+  <div class="slider-area ">
+    <div class="slider-height2 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="hero-cap hero-cap2 text-center">
+              <h2>Sandhu Assignment Help</h2>
+              <h2>CANADA</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+  <div class="testimonial-area section-bg" id="get-quote">
+    <br>
+
+    <!--? About Law Start-->
+    <div class="about-area" style="margin-top: 50px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="about-caption mb-50">
+              <!-- Section Tittle -->
+              <div class="section-tittle mb-35">
+                <span>More About Our Company</span>
+                <h2>Sandhu Assignment Help - AUSTRALIA</h2>
+              </div>
+              <p>Welcome to Sandhu Assignment Help - your one-stop solution for all academic writing needs in Australia. We are a team of experienced and qualified writers who specialize in providing high-quality assignment help to students
+                in Australia. Our services include custom essays, research papers, case studies, dissertations, report writing, computer programming, web and graphic designing, mobile app development services, and we cater to students
+                at all academic levels.</p>
+              <p>
+                At Sandhu Assignment Help, we understand the importance of timely submission and provide quick and reliable assignment writing services to ensure that you never miss a deadline. Our team of writers is available 24/7 to assist you with any queries and
+                concerns you may have. Contact us today and experience academic excellence like never before! You can easily chat with us regarding your queries on Whatsapp or Facebook messenger.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <!-- about-img -->
+            <!--                        <div class="about-img ">-->
+
+            <div class="about-back-img about-logo">
+              <img src="/themes/custom/sah/static_assets/img/logo/sahlogo.png" alt="">
+            </div>
+            <!--                        </div>-->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="">
+              <img src="/themes/custom/sah/static_assets/img/elements/map-univs-aus.png" alt="" style="width: 100%;">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="about-caption mb-50" style="padding-left: 50px;">
+              <ul>
+                <li><span class="flaticon-business"></span> Top quality academic writers’ assistance
+                </li>
+                <li><span class="flaticon-communications-1"></span> 24x7 Guidance and Customer Support
+                </li>
+                <li><span class="flaticon-graduated"></span> Supporting students from 25+ Universities accross Australia
+                </li>
+                <li><span class="flaticon-tools-and-utensils"></span> On time project delivering without adhering to university guidelines</li>
+              </ul>
+              <a href="/#get-quote" class="btn">Get free quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--? Categories Area Start -->
+    {% include "@sah/static-services-grid.html.twig" %}
+    <!-- Categories Area End -->
+    <!--? Count Down Start -->
+    {% include "@sah/static-counter.html.twig" %}
+    <!--? Count Down End -->
+    <!--? Testimonial Start -->
+    {% include "@sah/static-testimonial-slider.html.twig" %}
+    <!-- Testimonial End -->
+
+  </div>
+</main>
+
+{% include "@sah/footer.html.twig" %}

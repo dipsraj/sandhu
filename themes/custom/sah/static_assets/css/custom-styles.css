@@ -1,0 +1,33 @@
+.mobile-btn {
+    display: inline-block;
+    background: #2d3092 !important;
+    padding: 27px 44px !important;;
+    color: #fff !important;;
+    cursor: pointer !important;;
+    font-size: 16px !important;;
+    border-radius: 0px !important;;
+    -moz-user-select: none !important;;
+    font-weight: 400 !important;;
+    letter-spacing: 1px !important;;
+    line-height: 0 !important;;
+    margin-bottom: 0 !important;;
+    margin: 10px !important;;
+    cursor: pointer !important;;
+    transition: color 0.4s linear !important;;
+    position: relative !important;;
+    z-index: 1 !important;;
+    border: 0 !important;;
+    overflow: hidden !important;;
+    margin: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.hide {
+    display: none !important;
+}
+@media only screen and (max-width: 991px) {
+    .hide {
+        display: block !important;
+    }
+}

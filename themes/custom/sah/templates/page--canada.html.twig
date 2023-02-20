@@ -1,0 +1,95 @@
+{% include "@sah/header.html.twig" %}
+
+{% if page.highlighted %}
+  <div class="highlighted">
+    <aside class="layout-container section clearfix" role="complementary">
+      {{ page.highlighted }}
+    </aside>
+  </div>
+{% endif %}
+
+<main>
+  <!--? slider Area Start-->
+  <div class="slider-area ">
+    <div class="slider-height2 d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="hero-cap hero-cap2 text-center">
+              <h2>Sandhu Assignment Help</h2>
+              <h2>CANADA</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slider Area End-->
+  <div class="testimonial-area section-bg" id="get-quote">
+    <br>
+
+    <!--? About Law Start-->
+    <div class="about-area" style="margin-top: 50px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="about-caption mb-50">
+              <!-- Section Tittle -->
+              <div class="section-tittle mb-35">
+                <span>More About Our Company</span>
+                <h2>Sandhu Assignment Help - CANADA</h2>
+              </div>
+              <p>Welcome to Sandhu Assignment Help Canada! We are your one-stop solution for all your academic needs. Our team of expert writers is dedicated to providing you with top-quality assignments, essays, dissertations, report writing,
+                computer programming, web and graphic designing, mobile app development services. With years of experience and a proven track record of success, we pride ourselves on being the best assignment help service in Canada.
+                We offer customized solutions for every subject, level, and deadline. Our affordable prices, 24/7 customer support, and strict adherence to deadlines make us the ideal choice for students looking for help with their
+                academic assignments. Contact us today to get started! You can easily chat with us regarding your queries on Whatsapp or Facebook messenger.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <!-- about-img -->
+            <!--                        <div class="about-img ">-->
+
+            <div class="about-back-img about-logo">
+              <img src="/themes/custom/sah/static_assets/img/logo/sahlogo.png" alt="">
+            </div>
+            <!--                        </div>-->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="">
+              <img src="/themes/custom/sah/static_assets/img/elements/map-univs-can.png" alt="" style="width: 100%;">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="about-caption mb-50" style="padding-left: 50px;">
+              <ul>
+                <li><span class="flaticon-business"></span> Top quality academic writers’ assistance
+                </li>
+                <li><span class="flaticon-communications-1"></span> 24x7 Guidance and Customer Support
+                </li>
+                <li><span class="flaticon-graduated"></span> Supporting students from 15+ Universities accross Canada
+                </li>
+                <li><span class="flaticon-tools-and-utensils"></span> On time project delivering without adhering to university guidelines</li>
+              </ul>
+              <a href="/#get-quote" class="btn">Get free quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--? Categories Area Start -->
+    {% include "@sah/static-services-grid.html.twig" %}
+    <!-- Categories Area End -->
+    <!--? Count Down Start -->
+    {% include "@sah/static-counter.html.twig" %}
+    <!--? Count Down End -->
+    <!--? Testimonial Start -->
+    {% include "@sah/static-testimonial-slider.html.twig" %}
+    <!-- Testimonial End -->
+
+  </div>
+</main>
+
+{% include "@sah/footer.html.twig" %}
