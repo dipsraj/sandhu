@@ -97,3 +97,16 @@ function sah_preprocess_html (&$variables) {
       ], 'description'
     ];
 }
+
+function sah_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+  $a =1;
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+  if ($current_path_alias == '/canada') {
+    $suggestions[] = 'page__canada';
+  }
+  if ($current_path_alias == '/australia') {
+    $suggestions[] = 'page__australia';
+  }
+}
