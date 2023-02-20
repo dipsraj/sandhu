@@ -83,6 +83,14 @@ function sah_preprocess_html (&$variables) {
     $title = "Assignment help services Canada, Australia | Sandhu Assignment Help";
     $desc = "Get benefitted from our assignment help services now in Canada, Australia. We are available 24/7 for your needs. Else, you can send us a query anytime.";
   }
+  if ($current_path_alias == '/canada') {
+    $title = "Expert Assignment Help in Canada - Sandhu Assignment Help";
+    $desc = "Sandhu Assignment Help Canada offers expert and affordable academic writing services, including custom assignments, essays, dissertations, computer programming and mobile app development. Contact us 24/7!";
+  }
+  if ($current_path_alias == '/australia') {
+    $title = "Expert Assignment Help in Australia - Sandhu Assignment Help";
+    $desc = "Sandhu Assignment Help offers high-quality academic writing services in Australia, including custom essays, research papers, computer programming and mobile app development. Professional assistance just a click away. Get started now!";
+  }
 
   if ($title)
     $variables["head_title"]["title"] = $title;
