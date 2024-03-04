@@ -33,8 +33,7 @@
           <h2 class="contact-title">Get in Touch</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="{{ url('sah_modifications.default_controller_get_in_touch') }}" method="post" id="contactForm"
-                novalidate="novalidate">
+          <form class="form-contact contact_form" action="{{ url('sah_modifications.default_controller_get_in_touch') }}" method="post" id="contactForm" onsubmit="return validateForm()">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -58,6 +57,18 @@
                                               placeholder=" Enter Message" required="required"></textarea>
                 </div>
               </div>
+            </div>
+            <div class="form-group mt-3">
+              <!-- CAPTCHA AREA STARTS-->
+              <div class="form-group d-flex align-items-center">
+                <canvas id="captchaCanvas"></canvas> <!-- Shows CAPTCHA -->
+                <i class="fas fa-sync-alt refresh-icon ml-2" onclick="generateCaptcha()"></i> <!-- Refresh CAPTCHA -->
+              </div>
+              <div class="form-group">
+                <label for="captcha">Enter Captcha</label>
+                <input type="text" name="incaptcha" required class="form-control" id="incaptcha" placeholder="Enter Captcha">
+              </div>
+              <!-- CAPTCHA AREA ENDS-->
             </div>
             <div class="form-group mt-3">
               <input type="submit" class="button button-contactForm boxed-btn" value="Send">
@@ -92,5 +103,88 @@
   </section>
   <!-- ================ contact section end ================= -->
 </main>
+
+<script>
+  generateCaptcha();
+
+  function generateRandomCode(length) {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+    var code = '';
+
+    for (var i = 0; i < length; i++) {
+      var index = Math.floor(Math.random() * characters.length);
+      code += characters.charAt(index);
+    }
+
+    return code;
+  }
+
+  function generateCaptcha() {
+    var canvas = document.getElementById('captchaCanvas');
+    var context = canvas.getContext('2d');
+
+    canvas.width = 150;
+    canvas.height = 50;
+
+    var backgroundColor = getRandomColor();
+    context.fillStyle = backgroundColor;
+
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var captchaCode = generateRandomCode(5);
+    context.font = 'italic 30px cursive';
+
+    var fontColor = getSimilarColor(backgroundColor);
+    context.fillStyle = fontColor;
+
+    var charWidth = 14;
+    var x = charWidth / 2;
+    var y = canvas.height / 2 + 10;
+
+    for (var i = 0; i < captchaCode.length; i++) {
+      context.fillText(captchaCode[i], x, y);
+      x += charWidth;
+    }
+
+    canvas.setAttribute('data-captcha-code', captchaCode);
+  }
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+  }
+
+  function getSimilarColor(color) {
+    var rgbValues = color.match(/\w\w/g).map(function(hex) {
+      return parseInt(hex, 16);
+    });
+
+    var similarValues = rgbValues.map(function(value) {
+      return Math.max(0, Math.min(255, value + 50));
+    });
+
+    return 'rgb(' + similarValues.join(',') + ')';
+  }
+
+  function validateForm() {
+    var userInput = document.getElementById('incaptcha').value.trim();
+
+    var captchaCode = document.getElementById('captchaCanvas').getAttribute('data-captcha-code');
+
+    if (userInput === captchaCode) {
+      //alert('CAPTCHA validated successfully.');
+      return true;
+    } else {
+      alert('CAPTCHA validation failed. Please try again.');
+      return false;
+    }
+  }
+</script>
 
 {% include "@sah/footer.html.twig" %}
