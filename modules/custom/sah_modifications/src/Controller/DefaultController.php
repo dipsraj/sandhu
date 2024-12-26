@@ -39,13 +39,13 @@ class DefaultController extends ControllerBase {
           'deadline' => $deadline,
         ],
       ];
-      WebformSubmission::create($values)->save();
+      // WebformSubmission::create($values)->save();
 
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'sah_modifications';
-      $key = 'quote_notification_user';
+      //$key = 'quote_notification_user';
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
-      $send = true;
+      $send = false;
 
       $params['data']['subject'] = $subject;
       $params['data']['pages'] = $pages;
@@ -56,11 +56,11 @@ class DefaultController extends ControllerBase {
       $to = $email;
       $params['subject'] = 'Quotation Details at Sandhu Assignment Help';
       $params['salutation'] = "Hello ".explode(' ',trim($name))[0].",";
-      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-      if ($result)
-        \Drupal::messenger()->addMessage('Email Sent Successfully.');
+      //$result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+      //if ($result)
+        //\Drupal::messenger()->addMessage('Email Sent Successfully.');
 
-      \Drupal::messenger()->addMessage('Thank You. Check your email for the Quotation.');
+      //\Drupal::messenger()->addMessage('Thank You. Check your email for the Quotation.');
       return $this->redirect('<front>');
     }
   }

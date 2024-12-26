@@ -35,7 +35,6 @@ function sah_modifications_help($route_name, RouteMatchInterface $route_match) {
 function sah_modifications_mail($key, &$message, $params) {
   switch ($key) {
     case 'comment_notification':
-    case 'quote_notification_user':
     case 'new_assignment_notification':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
